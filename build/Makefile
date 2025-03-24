@@ -31,7 +31,7 @@ ifneq (,$(Storia_config))
 endif
 
 clean:
-	@${MAKE} --no-print-directory -C . -f Storia.make clean
+	make -f Storia.make config=debug
 
 help:
 	@echo "Usage: make [config=name] [target]"

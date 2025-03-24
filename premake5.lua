@@ -7,7 +7,7 @@ project "Storia"
    language "C++"
    targetdir "bin/%{cfg.buildcfg}"
 
-   files { "src/**.cpp", "include/**.h" }
+   files { "main.cpp", "src/**.cpp", "include/**.h", "assets/**" }
    includedirs { "include" }
 
    filter "configurations:Debug"
