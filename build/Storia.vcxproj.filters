@@ -18,12 +18,18 @@
     <ClInclude Include="..\include\pch.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\setColor.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\userInterface.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\src\setColor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\userInterface.cpp">
       <Filter>src</Filter>
     </ClCompile>
