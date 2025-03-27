@@ -1,10 +1,32 @@
 #include "pch.h"  
 
-void mainMenu() {
-    std::ifstream f("../assets/graphic/header.txt");
+void startScreen()
+{
+    std::ifstream f("../assets/graphic/startScreen.txt");
 
     if (f.is_open())
-        SetColor(31);
-        std::cout << f.rdbuf();
+        SetColor(32);
+    std::cout << f.rdbuf() << std::endl;
 
+    while (std::cin.get() == '\n') {
+        mainMenu();
+        break;
+    }
+    resetColor();
+}
+
+void mainMenu() {
+
+    //Clear console
+    system("cls");
+
+    int choice;
+
+    std::ifstream f("../assets/graphic/header.txt");
+
+    if (f.is_open()) std::cout << f.rdbuf();
+
+    std::cin >> choice;
+
+    resetColor();
 }

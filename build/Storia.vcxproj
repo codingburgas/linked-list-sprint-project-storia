@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt" />
+    <None Include="..\assets\graphic\startScreen.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

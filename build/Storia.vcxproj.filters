@@ -38,5 +38,8 @@
     <None Include="..\assets\graphic\header.txt">
       <Filter>assets\graphic</Filter>
     </None>
+    <None Include="..\assets\graphic\startScreen.txt">
+      <Filter>assets\graphic</Filter>
+    </None>
   </ItemGroup>
 </Project>
