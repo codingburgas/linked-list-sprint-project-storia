@@ -9,7 +9,7 @@ void stagesMenu()
 
     std::ifstream f("../assets/graphic/stagesHeader.txt");
 
-    if (f.is_open()) std::cout << f.rdbuf();
+    if (f.is_open()) std::cout << f.rdbuf() << std::endl;
 
     std::cin >> choice;
 }
