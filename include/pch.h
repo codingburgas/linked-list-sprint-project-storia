@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <fstream> 
 #include <cstdlib>
+#include <string>
 
 #include "userInterface.h"
 #include "setColor.h"
+#include "stagesPage.h"

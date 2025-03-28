@@ -90,15 +90,18 @@
   <ItemGroup>
     <ClInclude Include="..\include\pch.h" />
     <ClInclude Include="..\include\setColor.h" />
+    <ClInclude Include="..\include\stagesPage.h" />
     <ClInclude Include="..\include\userInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\setColor.cpp" />
     <ClCompile Include="..\src\userInterface.cpp" />
+    <ClCompile Include="stagesPage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt" />
+    <None Include="..\assets\graphic\stagesHeader.txt" />
     <None Include="..\assets\graphic\startScreen.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

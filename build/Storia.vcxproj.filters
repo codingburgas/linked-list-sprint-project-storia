@@ -24,6 +24,9 @@
     <ClInclude Include="..\include\userInterface.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\stagesPage.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -33,9 +36,15 @@
     <ClCompile Include="..\src\userInterface.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="stagesPage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt">
+      <Filter>assets\graphic</Filter>
+    </None>
+    <None Include="..\assets\graphic\stagesHeader.txt">
       <Filter>assets\graphic</Filter>
     </None>
     <None Include="..\assets\graphic\startScreen.txt">
