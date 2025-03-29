@@ -103,6 +103,8 @@
     <None Include="..\assets\graphic\header.txt" />
     <None Include="..\assets\graphic\stages\681-814.txt" />
     <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
+    <None Include="..\assets\graphic\stages\814-983.txt" />
+    <None Include="..\assets\graphic\stages\814-983Leaders.txt" />
     <None Include="..\assets\graphic\stagesHeader.txt" />
     <None Include="..\assets\graphic\startScreen.txt" />
   </ItemGroup>

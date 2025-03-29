@@ -53,6 +53,12 @@
     <None Include="..\assets\graphic\stages\681-814Leaders.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>
+    <None Include="..\assets\graphic\stages\814-983.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\814-983Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
     <None Include="..\assets\graphic\stagesHeader.txt">
       <Filter>assets\graphic</Filter>
     </None>
