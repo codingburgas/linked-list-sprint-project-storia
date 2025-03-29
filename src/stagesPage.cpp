@@ -1,15 +1,13 @@
 #include "pch.h"
 
-void formation681()
+//Forward declaration
+void formation681();
+void goldenAge814();
+void byzantineConquest983();
+
+void choiceSwitch(std::ifstream& Leaders)
 {
-    system("cls");
-
     char choice;
-
-    std::ifstream Info("../assets/graphic/stages/681-814.txt");
-    std::ifstream Leaders("../assets/graphic/stages/681-814Leaders.txt");
-
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
 
     std::cout << "Choice: ";
     //Loop until valid choice
@@ -17,6 +15,7 @@ void formation681()
         std::cin >> choice;
         switch (choice) {
         case 'Y':
+        case 'y':
             system("cls");
             if (Leaders.is_open()) std::cout << Leaders.rdbuf() << std::endl;
             char goBack;
@@ -39,9 +38,11 @@ void formation681()
                 }
             }
         case 'N':
+        case 'n':
             stagesMenu();
             break;
         case 'M':
+        case 'm':
             system("cls");
             mainMenu();
             break;
@@ -50,6 +51,18 @@ void formation681()
             break;
         }
     }
+}
+
+void formation681()
+{
+    system("cls");
+
+    std::ifstream Info("../assets/graphic/stages/681-814.txt");
+    std::ifstream Leaders("../assets/graphic/stages/681-814Leaders.txt");
+
+    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+
+    choiceSwitch(Leaders);
 
 }
 
@@ -57,62 +70,16 @@ void goldenAge814()
 {
     system("cls");
 
-    char choice;
-
     std::ifstream Info("../assets/graphic/stages/814-983.txt");
     std::ifstream Leaders("../assets/graphic/stages/814-983Leaders.txt");
 
     if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
 
-    std::cout << "Choice: ";
-
-    //Loop until valid choice
-    while (true) {
-
-        std::cin >> choice;
-        switch (choice) {
-        case 'Y':
-            system("cls");
-            if (Leaders.is_open()) std::cout << Leaders.rdbuf() << std::endl;
-            char goBack;
-            std::cout << "Choice: ";
-            while (true) {
-                std::cin >> goBack;
-
-                switch (goBack)
-                {
-                case 'N':
-                    system("cls");
-                    formation681();
-                    break;
-                case 'M':
-                    system("cls");
-                    mainMenu();
-                    break;
-                default:
-                    std::cout << "You've entered an invalid option. Please try again." << std::endl;
-                    break;
-                }
-            }
-
-        case 'N':
-            stagesMenu();
-            break;
-        case 'M':
-            system("cls");
-            mainMenu();
-            break;
-        default:
-            std::cout << "You've entered an invalid option. Please try again." << std::endl;
-            break;
-        }
-    }
+    choiceSwitch(Leaders);
 }
 
 void byzantineConquest983(){
     system("cls");
-
-    char choice;
 
     std::ifstream Info("../assets/graphic/stages/983-1018.txt");
     std::ifstream Leaders("../assets/graphic/stages/983-1018Leaders.txt");
@@ -121,47 +88,7 @@ void byzantineConquest983(){
 
     std::cout << "Choice: ";
 
-    //Loop until valid choice
-    while (true) {
-
-        std::cin >> choice;
-        switch (choice) {
-        case 'Y':
-            system("cls");
-            if (Leaders.is_open()) std::cout << Leaders.rdbuf() << std::endl;
-            char goBack;
-            std::cout << "Choice: ";
-            while (true) {
-                std::cin >> goBack;
-
-                switch (goBack)
-                {
-                case 'N':
-                    system("cls");
-                    formation681();
-                    break;
-                case 'M':
-                    system("cls");
-                    mainMenu();
-                    break;
-                default:
-                    std::cout << "You've entered an invalid option. Please try again." << std::endl;
-                    break;
-                }
-            }
-
-        case 'N':
-            stagesMenu();
-            break;
-        case 'M':
-            system("cls");
-            mainMenu();
-            break;
-        default:
-            std::cout << "You've entered an invalid option. Please try again." << std::endl;
-            break;
-        }
-    }
+    choiceSwitch(Leaders);
 }
 
 void stagesMenu()
