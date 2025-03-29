@@ -96,11 +96,13 @@
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\src\setColor.cpp" />
+    <ClCompile Include="..\src\stagesPage.cpp" />
     <ClCompile Include="..\src\userInterface.cpp" />
-    <ClCompile Include="stagesPage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt" />
+    <None Include="..\assets\graphic\stages\681-814.txt" />
+    <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
     <None Include="..\assets\graphic\stagesHeader.txt" />
     <None Include="..\assets\graphic\startScreen.txt" />
   </ItemGroup>

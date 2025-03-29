@@ -3,4 +3,3 @@
 
 void startScreen();
 void mainMenu();
-int enterChoice();

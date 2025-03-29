@@ -7,6 +7,9 @@
     <Filter Include="assets\graphic">
       <UniqueIdentifier>{A52ACF54-91F8-C25A-7A8C-338166F99EBF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets\graphic\stages">
+      <UniqueIdentifier>{9B95E63F-0702-A23A-D0F5-39983C21C4A2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="include">
       <UniqueIdentifier>{89AF369E-F58E-B539-FEA6-40106A051C9B}</UniqueIdentifier>
     </Filter>
@@ -21,10 +24,10 @@
     <ClInclude Include="..\include\setColor.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\userInterface.h">
+    <ClInclude Include="..\include\stagesPage.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\stagesPage.h">
+    <ClInclude Include="..\include\userInterface.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,16 +36,22 @@
     <ClCompile Include="..\src\setColor.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\userInterface.cpp">
+    <ClCompile Include="..\src\stagesPage.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="stagesPage.cpp">
+    <ClCompile Include="..\src\userInterface.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt">
       <Filter>assets\graphic</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\681-814.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\681-814Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
     </None>
     <None Include="..\assets\graphic\stagesHeader.txt">
       <Filter>assets\graphic</Filter>
