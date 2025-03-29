@@ -101,10 +101,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt" />
+    <None Include="..\assets\graphic\logIn.txt" />
+    <None Include="..\assets\graphic\register.txt" />
     <None Include="..\assets\graphic\stages\681-814.txt" />
     <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
     <None Include="..\assets\graphic\stages\814-983.txt" />
     <None Include="..\assets\graphic\stages\814-983Leaders.txt" />
+    <None Include="..\assets\graphic\stages\983-1018.txt" />
+    <None Include="..\assets\graphic\stages\983-1018Leaders.txt" />
     <None Include="..\assets\graphic\stagesHeader.txt" />
     <None Include="..\assets\graphic\startScreen.txt" />
   </ItemGroup>

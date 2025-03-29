@@ -1,0 +1,22 @@
+                                        +===========================================+
+                                        |                                           |
+                                        |    _                   _                  |
+                                        |   | |    ___  __ _  __| | ___ _ __ ___    |
+                                        |   | |   / _ \/ _` |/ _` |/ _ \ '__/ __|   |
+                                        |   | |__|  __/ (_| | (_| |  __/ |  \__ \   |
+                                        |   |_____\___|\__,_|\__,_|\___|_|  |___/   |
+                                        |                                           |
+                                        +===========================================+
+
+Khan Samuil: Ruled from 997 to 1014 but was the de facto ruler since the 980s. He was one of the four Cometopuli brothers who resisted Byzantine rule after the fall of eastern Bulgaria. He defeated Basil II at the Battle of Trajan’s Gate in 986, halting Byzantine advances for years. He expanded Bulgarian control over Macedonia, Serbia, Albania, and parts of Greece. In 997, after the death of Roman, the last ruler of the Krum dynasty, Samuil officially became Tsar. He engaged in continuous warfare against Byzantium but suffered a catastrophic defeat at the Battle of Kleidion in 1014, where thousands of Bulgarian soldiers were captured and blinded by Basil II. Shortly after witnessing his mutilated army return, he died from a heart attack.
+
+Khan Gavril Radomir: Ruled from 1014 to 1015. He was the son of Samuil and inherited the throne after his father’s death. He attempted to continue the fight against Byzantium but faced internal opposition. In 1015, he was assassinated by his cousin, Ivan Vladislav, who took the throne.
+
+Khan Ivan Vladislav: Ruled from 1015 to 1018. He seized power after assassinating Gavril Radomir. He made military and diplomatic efforts to preserve Bulgarian independence. In 1018, he was killed in battle at Dyrrhachium while defending against Byzantium. After his death, the Bulgarian nobles surrendered, marking the end of the First Bulgarian Empire.
+
+                                        +==========================+
+                                        |                          |
+                                        |  Press N to go back      |
+					|  Press M for main menu   |
+                                        |                          |
+                                        +==========================+

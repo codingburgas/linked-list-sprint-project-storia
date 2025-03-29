@@ -47,6 +47,12 @@
     <None Include="..\assets\graphic\header.txt">
       <Filter>assets\graphic</Filter>
     </None>
+    <None Include="..\assets\graphic\logIn.txt">
+      <Filter>assets\graphic</Filter>
+    </None>
+    <None Include="..\assets\graphic\register.txt">
+      <Filter>assets\graphic</Filter>
+    </None>
     <None Include="..\assets\graphic\stages\681-814.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>
@@ -57,6 +63,12 @@
       <Filter>assets\graphic\stages</Filter>
     </None>
     <None Include="..\assets\graphic\stages\814-983Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\983-1018.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\983-1018Leaders.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>
     <None Include="..\assets\graphic\stagesHeader.txt">

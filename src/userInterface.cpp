@@ -26,6 +26,7 @@ void mainMenu() {
     if (f.is_open()) std::cout << f.rdbuf();
 
     char choice;
+    std::cout << "Choice: ";
 
     //Loop until valid choice
     while (true) {
