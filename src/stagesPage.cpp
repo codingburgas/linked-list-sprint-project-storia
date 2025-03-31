@@ -91,6 +91,34 @@ void byzantineConquest983(){
     choiceSwitch(Leaders);
 }
 
+void riseSecondBulgaria1206()
+{
+    system("cls");
+
+    std::ifstream Info("../assets/graphic/stages/1019-1206.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1019-1206Leaders.txt");
+
+    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
+void medievalPeriod1877()
+{
+    system("cls");
+
+    std::ifstream Info("../assets/graphic/stages/1207-1877.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1207-1877Leaders.txt");
+
+    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
 void stagesMenu()
 {
     //Clear console
@@ -117,6 +145,14 @@ void stagesMenu()
         case '3':
             byzantineConquest983();
             resetColor();
+            return;
+        case '4':
+            riseSecondBulgaria1206();
+            resetColor;
+            return;
+        case '5':
+            medievalPeriod1877();
+            resetColor;
             return;
         default:
             std::cout << "You've entered an invalid option. Please try again." << std::endl;

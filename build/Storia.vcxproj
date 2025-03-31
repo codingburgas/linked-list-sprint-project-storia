@@ -103,6 +103,10 @@
     <None Include="..\assets\graphic\header.txt" />
     <None Include="..\assets\graphic\logIn.txt" />
     <None Include="..\assets\graphic\register.txt" />
+    <None Include="..\assets\graphic\stages\1019-1206.txt" />
+    <None Include="..\assets\graphic\stages\1019-1206Leaders.txt" />
+    <None Include="..\assets\graphic\stages\1207-1877.txt" />
+    <None Include="..\assets\graphic\stages\1207-1877Leaders.txt" />
     <None Include="..\assets\graphic\stages\681-814.txt" />
     <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
     <None Include="..\assets\graphic\stages\814-983.txt" />

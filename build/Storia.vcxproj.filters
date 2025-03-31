@@ -53,6 +53,18 @@
     <None Include="..\assets\graphic\register.txt">
       <Filter>assets\graphic</Filter>
     </None>
+    <None Include="..\assets\graphic\stages\1019-1206.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1019-1206Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1207-1877.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1207-1877Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
     <None Include="..\assets\graphic\stages\681-814.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>
