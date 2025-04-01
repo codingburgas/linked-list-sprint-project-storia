@@ -1,4 +1,3 @@
 .vs/
-./bin
-bin
-bin/
+./bin/
+.bin/
