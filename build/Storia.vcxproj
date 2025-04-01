@@ -107,6 +107,10 @@
     <None Include="..\assets\graphic\stages\1019-1206Leaders.txt" />
     <None Include="..\assets\graphic\stages\1207-1877.txt" />
     <None Include="..\assets\graphic\stages\1207-1877Leaders.txt" />
+    <None Include="..\assets\graphic\stages\1878-1885.txt" />
+    <None Include="..\assets\graphic\stages\1878-1885Leaders.txt" />
+    <None Include="..\assets\graphic\stages\1886-2025.txt" />
+    <None Include="..\assets\graphic\stages\1886-2025Leaders.txt" />
     <None Include="..\assets\graphic\stages\681-814.txt" />
     <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
     <None Include="..\assets\graphic\stages\814-983.txt" />

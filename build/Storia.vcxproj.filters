@@ -65,6 +65,18 @@
     <None Include="..\assets\graphic\stages\1207-1877Leaders.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>
+    <None Include="..\assets\graphic\stages\1878-1885.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1878-1885Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1886-2025.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
+    <None Include="..\assets\graphic\stages\1886-2025Leaders.txt">
+      <Filter>assets\graphic\stages</Filter>
+    </None>
     <None Include="..\assets\graphic\stages\681-814.txt">
       <Filter>assets\graphic\stages</Filter>
     </None>

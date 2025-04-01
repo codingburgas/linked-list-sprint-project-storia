@@ -119,6 +119,34 @@ void medievalPeriod1877()
     choiceSwitch(Leaders);
 }
 
+void liberation1885()
+{
+    system("cls");
+
+    std::ifstream Info("../assets/graphic/stages/1878-1885.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1878-1885Leaders.txt");
+
+    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
+void modernBulgaria()
+{
+    system("cls");
+
+    std::ifstream Info("../assets/graphic/stages/1886-2025.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1886-2025Leaders.txt");
+
+    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
 void stagesMenu()
 {
     //Clear console
@@ -152,6 +180,14 @@ void stagesMenu()
             return;
         case '5':
             medievalPeriod1877();
+            resetColor;
+            return;
+        case '6':
+            liberation1885();
+            resetColor;
+            return;
+        case '7':
+            modernBulgaria();
             resetColor;
             return;
         default:

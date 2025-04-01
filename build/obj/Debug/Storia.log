@@ -1,4 +1,6 @@
 ﻿  stagesPage.cpp
-C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(151,13): warning C4551: function call missing argument list
-C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(155,13): warning C4551: function call missing argument list
+C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(179,13): warning C4551: function call missing argument list
+C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(183,13): warning C4551: function call missing argument list
+C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(187,13): warning C4551: function call missing argument list
+C:\Users\Iva\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(191,13): warning C4551: function call missing argument list
   Storia.vcxproj -> C:\Users\Iva\Documents\linked-list-sprint-project-storia\bin\Debug\Storia.exe
