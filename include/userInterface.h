@@ -3,4 +3,5 @@
 
 void startScreen();
 void mainMenu();
-void registerUI();
+void registerUI(User* user);
+void logInUi(User* user);

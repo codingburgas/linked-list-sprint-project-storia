@@ -76,7 +76,7 @@ nlohmann::json User::saveAsJson() {
 	return data;
 }
 
-void User::loadFromFile(const string& fileName, const string& emailToFind)
+bool User::loadFromFile(const string& fileName, const string& emailToFind)
 {
 	nlohmann::json data;
 	if (!Utiles::isFileEmpty(fileName)) {
@@ -89,14 +89,14 @@ void User::loadFromFile(const string& fileName, const string& emailToFind)
 			this->email = item["email"];
 			this->userName = item["userName"];
 			this->password = item["password"];
-			displayUser();
-			return;
+			return true;
 		}
 	}
 	std::cerr << "User not found!" << std::endl;
+	return false;
 }
 
-void User::loadFromFile(const string& fileName, const size_t& index)
+bool User::loadFromFile(const string& fileName, const size_t& index)
 {
 	nlohmann::json data;
 	if (!Utiles::isFileEmpty(fileName)) {
@@ -108,10 +108,12 @@ void User::loadFromFile(const string& fileName, const size_t& index)
 		this->userName = data[index]["userName"];
 		this->password = data[index]["password"];
 		displayUser();
+		return true;
 	}
 	else {
 		std::cerr << "Index out of range!" << std::endl;
 	}
+	return false;
 }
 
 void User::deleteFromFile(const string& fileName){
@@ -140,7 +142,7 @@ void User::displayUser()
 {
 	cout << "id: " << this->id << "\n";
 	cout << "Email: " << this->email << "\n";
-	cout << "user Name: " << this->userName << "\n";
+	cout << "Username: " << this->userName << "\n";
 	cout << "Password: " << this->password << "\n";
 }
 

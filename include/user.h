@@ -19,8 +19,8 @@ public:
 	bool checkPassword(const std::string& password);
 
 	nlohmann::json saveAsJson();
-	void loadFromFile(const std::string& fileName, const std::string& emailToFind);
-	void loadFromFile(const std::string& fileName, const size_t& index);
+	bool loadFromFile(const std::string& fileName, const std::string& emailToFind);
+	bool loadFromFile(const std::string& fileName, const size_t& index);
 	void deleteFromFile(const std::string& fileName);
 
 	void displayUser();
