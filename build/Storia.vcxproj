@@ -102,11 +102,22 @@
   <ItemGroup>
     <None Include="..\assets\graphic\header.txt" />
     <None Include="..\assets\graphic\logIn.txt" />
+    <None Include="..\assets\graphic\maps\1019-1206.txt" />
+    <None Include="..\assets\graphic\maps\1207-1877.txt" />
+    <None Include="..\assets\graphic\maps\1878-1885.txt" />
+    <None Include="..\assets\graphic\maps\1886-2025.txt" />
+    <None Include="..\assets\graphic\maps\681-814.txt" />
+    <None Include="..\assets\graphic\maps\814-983.txt" />
+    <None Include="..\assets\graphic\maps\983-1018.txt" />
     <None Include="..\assets\graphic\register.txt" />
     <None Include="..\assets\graphic\stages\1019-1206.txt" />
     <None Include="..\assets\graphic\stages\1019-1206Leaders.txt" />
     <None Include="..\assets\graphic\stages\1207-1877.txt" />
     <None Include="..\assets\graphic\stages\1207-1877Leaders.txt" />
+    <None Include="..\assets\graphic\stages\1878-1885.txt" />
+    <None Include="..\assets\graphic\stages\1878-1885Leaders.txt" />
+    <None Include="..\assets\graphic\stages\1886-2025.txt" />
+    <None Include="..\assets\graphic\stages\1886-2025Leaders.txt" />
     <None Include="..\assets\graphic\stages\681-814.txt" />
     <None Include="..\assets\graphic\stages\681-814Leaders.txt" />
     <None Include="..\assets\graphic\stages\814-983.txt" />

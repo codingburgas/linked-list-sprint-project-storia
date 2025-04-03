@@ -57,10 +57,13 @@ void formation681()
 {
     system("cls");
 
+    std::ifstream Map("../assets/graphic/maps/681-814.txt");
     std::ifstream Info("../assets/graphic/stages/681-814.txt");
     std::ifstream Leaders("../assets/graphic/stages/681-814Leaders.txt");
+    
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
 
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+    std::cout << "Choice: ";
 
     choiceSwitch(Leaders);
 
@@ -70,10 +73,13 @@ void goldenAge814()
 {
     system("cls");
 
+    std::ifstream Map("../assets/graphic/maps/814-983.txt");
     std::ifstream Info("../assets/graphic/stages/814-983.txt");
     std::ifstream Leaders("../assets/graphic/stages/814-983Leaders.txt");
 
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
 
     choiceSwitch(Leaders);
 }
@@ -81,10 +87,11 @@ void goldenAge814()
 void byzantineConquest983(){
     system("cls");
 
+    std::ifstream Map("../assets/graphic/maps/983-1018.txt");
     std::ifstream Info("../assets/graphic/stages/983-1018.txt");
     std::ifstream Leaders("../assets/graphic/stages/983-1018Leaders.txt");
 
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
 
     std::cout << "Choice: ";
 
@@ -95,10 +102,11 @@ void riseSecondBulgaria1206()
 {
     system("cls");
 
+    std::ifstream Map("../assets/graphic/maps/1019-1206.txt");
     std::ifstream Info("../assets/graphic/stages/1019-1206.txt");
     std::ifstream Leaders("../assets/graphic/stages/1019-1206Leaders.txt");
 
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
 
     std::cout << "Choice: ";
 
@@ -109,10 +117,41 @@ void medievalPeriod1877()
 {
     system("cls");
 
+    std::ifstream Map("../assets/graphic/maps/1207-1877.txt");
     std::ifstream Info("../assets/graphic/stages/1207-1877.txt");
     std::ifstream Leaders("../assets/graphic/stages/1207-1877Leaders.txt");
 
-    if (Info.is_open()) std::cout << Info.rdbuf() << std::endl;
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
+void liberation1885()
+{
+    system("cls");
+
+    std::ifstream Map("../assets/graphic/maps/1878-1885.txt");
+    std::ifstream Info("../assets/graphic/stages/1878-1885.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1878-1885Leaders.txt");
+
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
+
+    std::cout << "Choice: ";
+
+    choiceSwitch(Leaders);
+}
+
+void modernBulgaria()
+{
+    system("cls");
+
+    std::ifstream Map("../assets/graphic/maps/1886-2025.txt");
+    std::ifstream Info("../assets/graphic/stages/1886-2025.txt");
+    std::ifstream Leaders("../assets/graphic/stages/1886-2025Leaders.txt");
+
+    if (Info.is_open() && Map.is_open()) std::cout << Map.rdbuf() << Info.rdbuf() << std::endl;
 
     std::cout << "Choice: ";
 
@@ -152,6 +191,14 @@ void stagesMenu()
             return;
         case '5':
             medievalPeriod1877();
+            resetColor;
+            return;
+        case '6':
+            liberation1885();
+            resetColor;
+            return;
+        case '7':
+            modernBulgaria();
             resetColor;
             return;
         default:
