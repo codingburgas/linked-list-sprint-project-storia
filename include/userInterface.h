@@ -3,3 +3,4 @@
 
 void startScreen();
 void mainMenu();
+void registerUI();

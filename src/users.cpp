@@ -9,8 +9,8 @@
 using std::string;
 using std::cout;
 
-User::User(std::string email, std::string password, std::string firstName, std::string lastName)
-	: email(email), password(password), firstName(firstName), lastName(lastName)
+User::User(std::string email, std::string password, std::string userName)
+	: email(email), password(password), userName(userName)
 {
 }
 
@@ -41,6 +41,7 @@ bool User::checkEmail(const string& email, const string& fileName)
 	string command = "nslookup -type=MX " + domain + " > nul 2>&1";
 
 	if (std::system(command.c_str()) == 0) {
+		this->email = email;
 		return true;
 	}
 	else {
@@ -58,7 +59,8 @@ bool User::checkPassword(const string& password)
 	}
 	for (size_t i = 0; i < 10; i++)  
 	{
-		if (password.find(specialCharacters[i]) != string::npos) {  
+		if (password.find(specialCharacters[i]) != string::npos) {
+			this->password = password;
 			return true;
 		}
 	}
@@ -70,8 +72,7 @@ nlohmann::json User::saveAsJson() {
 	nlohmann::json data;
 	data["email"] = this->email;
 	data["password"] = this->password;
-	data["firstName"] = this->firstName;
-	data["lastName"] = this->lastName;
+	data["userName"] = this->userName;
 	return data;
 }
 
@@ -86,8 +87,7 @@ void User::loadFromFile(const string& fileName, const string& emailToFind)
 		if (item["email"] == emailToFind) {
 			this->id = item["id"];
 			this->email = item["email"];
-			this->firstName = item["firstName"];
-			this->lastName = item["lastName"];
+			this->userName = item["userName"];
 			this->password = item["password"];
 			displayUser();
 			return;
@@ -105,8 +105,7 @@ void User::loadFromFile(const string& fileName, const size_t& index)
 	if (index < data.size()) {
 		this->id = data[index]["id"];
 		this->email = data[index]["email"];
-		this->firstName = data[index]["firstName"];
-		this->lastName = data[index]["lastName"];
+		this->userName = data[index]["userName"];
 		this->password = data[index]["password"];
 		displayUser();
 	}
@@ -141,15 +140,13 @@ void User::displayUser()
 {
 	cout << "id: " << this->id << "\n";
 	cout << "Email: " << this->email << "\n";
-	cout << "First Name: " << this->firstName << "\n";
-	cout << "Last Name: " << this->lastName << "\n";
+	cout << "user Name: " << this->userName << "\n";
 	cout << "Password: " << this->password << "\n";
 }
 
 void User::eraseUser() {
 	this->email = "";
-	this->firstName ="";
-	this->lastName = "";
+	this->userName ="";
 	this->password = "";
 }
 
@@ -163,17 +160,16 @@ string User::getPassword()
 	return this->password;
 }
 
-string User::getFirstName()
+string User::getUserName()
 {
-	return this->firstName;
+	return this->userName;
 }
-
-string User::getLastName()
-{
-	return this->lastName;
-} 
 
 size_t User::getId()
 {
 	return this->id;
+}
+
+void User::setUserName(std::string name) {
+	this->userName = name;
 }

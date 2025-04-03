@@ -6,15 +6,15 @@
 class User
 {
 public:
-	User(std::string email = "", std::string password = "", std::string firstName = "", std::string lastName = "");
+	User(std::string email = "", std::string password = "", std::string userName = "");
 	~User();
 
 	size_t getId();
 	std::string getEmail();
 	std::string getPassword();
-	std::string getFirstName();
-	std::string getLastName();
+	std::string getUserName();
 
+	void setUserName(std::string name);
 	bool checkEmail(const std::string& email, const std::string& fileName);
 	bool checkPassword(const std::string& password);
 
@@ -31,6 +31,5 @@ private:
 	size_t id;
 	std::string email;
 	std::string password;
-	std::string firstName;
-	std::string lastName;
+	std::string userName;
 };

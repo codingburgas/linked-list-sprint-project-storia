@@ -19,6 +19,19 @@ nlohmann::json Utiles::loadFile(const std::string& fileName)
 	return dataToSave;
 }
 
+void Utiles::displayFile(const std::string& fileName) {
+	std::ifstream file(fileName);
+
+	if (file.is_open() || !Utiles::isFileEmpty(fileName)) {
+		std::cout << file.rdbuf() << std::endl;
+		file.close();
+	}
+	else {
+		std::cerr << "Could not open file for reading!" << std::endl;
+	}
+}
+
+
 void Utiles::saveToFile(const std::string& fileName, const nlohmann::json& data) {
 	nlohmann::json existingData;
 	nlohmann::json inData = data;
@@ -40,7 +53,7 @@ void Utiles::saveToFile(const std::string& fileName, const nlohmann::json& data)
 	if (outFile.is_open()) {
 		outFile << existingData.dump(4);
 		outFile.close();
-		std::cout << "Data saved to " << fileName << std::endl;
+		//std::cout << "Data saved to " << fileName << std::endl;
 	}
 	else {
 		std::cerr << "Could not open file for writing!" << std::endl;
