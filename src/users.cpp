@@ -9,15 +9,6 @@
 using std::string;
 using std::cout;
 
-User::User(std::string email, std::string password, std::string userName)
-	: email(email), password(password), userName(userName)
-{
-}
-
-User::~User()
-{
-}
-
 bool User::checkEmail(const string& email, const string& fileName)
 {
 	nlohmann::json data;
@@ -27,13 +18,13 @@ bool User::checkEmail(const string& email, const string& fileName)
 
 	for (const auto& item : data) {
 		if (item["email"] == email) {
-			cout << "Email already exists" << std::endl;
+			cout << "     Email already exists: "  ;
 			return false;
 		}
 	}
 	std::regex email_regex(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
 	if (!std::regex_match(email, email_regex)) {
-		cout << "Invalid email" << std::endl;
+		cout << "     Invalid email: ";
 		return false;
 	}
 
@@ -45,7 +36,7 @@ bool User::checkEmail(const string& email, const string& fileName)
 		return true;
 	}
 	else {
-		cout << "Invalid email domain" << std::endl;
+		cout << "     Invalid email domain: ";
 		return false;
 	}
 }
@@ -54,17 +45,17 @@ bool User::checkPassword(const string& password)
 {
 	if (password.size() < 6)
 	{
-		cout << "password must be at least 6 characters long" << std::endl;
+		cout << "     Password must be at least 6 characters long: ";
 		return false;
 	}
-	for (size_t i = 0; i < 10; i++)  
+	for (size_t i = 0; i < 10; i++)
 	{
 		if (password.find(specialCharacters[i]) != string::npos) {
 			this->password = password;
 			return true;
 		}
 	}
-	cout << "password must contain at least one special character" << std::endl;
+	cout << "     Password must contain at least one special character: ";
 	return false;
 }
 
@@ -92,50 +83,8 @@ bool User::loadFromFile(const string& fileName, const string& emailToFind)
 			return true;
 		}
 	}
-	std::cerr << "User not found!" << std::endl;
+	std::cerr << "User not found!";
 	return false;
-}
-
-bool User::loadFromFile(const string& fileName, const size_t& index)
-{
-	nlohmann::json data;
-	if (!Utiles::isFileEmpty(fileName)) {
-		data = Utiles::loadFile(fileName);
-	}
-	if (index < data.size()) {
-		this->id = data[index]["id"];
-		this->email = data[index]["email"];
-		this->userName = data[index]["userName"];
-		this->password = data[index]["password"];
-		displayUser();
-		return true;
-	}
-	else {
-		std::cerr << "Index out of range!" << std::endl;
-	}
-	return false;
-}
-
-void User::deleteFromFile(const string& fileName){
-	nlohmann::json data;
-	if (!Utiles::isFileEmpty(fileName)) {
-		data = Utiles::loadFile(fileName);
-	}
-	nlohmann::json newData = nlohmann::json::array();
-	for (const auto& item : data) {
-		if (item["email"] != this->email) {
-			newData.push_back(item);
-		}
-	}
-	std::ofstream outFile(fileName);
-	if (outFile.is_open()) {
-		outFile << newData.dump(4);
-		outFile.close();
-		std::cout << "User deleted" << std::endl;
-	}
-	else {
-		std::cerr << "Could not open file for writing!" << std::endl;
-	}
 }
 
 void User::displayUser()

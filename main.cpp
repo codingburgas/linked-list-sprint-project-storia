@@ -2,5 +2,5 @@
 
 int main() {
     //mainMenu();
-    startScreen();
+    UI ui;
 }

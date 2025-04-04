@@ -7,6 +7,7 @@ void byzantineConquest983();
 
 void choiceSwitch(std::ifstream& Leaders)
 {
+    UI ui;
     char choice;
 
     std::cout << "Choice: ";
@@ -30,7 +31,7 @@ void choiceSwitch(std::ifstream& Leaders)
                     break;
                 case 'M':
                     system("cls");
-                    mainMenu();
+                   ui.mainMenu();
                     break;
                 default:
                     std::cout << "You've entered an invalid option. Please try again." << std::endl;
@@ -44,7 +45,7 @@ void choiceSwitch(std::ifstream& Leaders)
         case 'M':
         case 'm':
             system("cls");
-            mainMenu();
+            ui.mainMenu();
             break;
         default:
             std::cout << "You've entered an invalid option. Please try again." << std::endl;

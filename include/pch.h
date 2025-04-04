@@ -11,7 +11,6 @@
 
 #include "utiles.h"
 #include "user.h"
-#include "admin.h"
 #include "userInterface.h"
 #include "setColor.h"
 #include "stagesPage.h"

@@ -1,6 +1,17 @@
-#include "pch.h"  
+#include "pch.h"
 
-void startScreen()
+UI::UI()
+{
+    user = new User;
+    startScreen();
+}
+
+UI::~UI() {
+    delete user;
+}
+
+
+void UI::startScreen()
 {
     SetColor(32);
 
@@ -14,7 +25,7 @@ void startScreen()
 }
 
 
-void mainMenu() {
+void UI::mainMenu() {
 
     //Clear console
     system("cls");
@@ -29,11 +40,11 @@ void mainMenu() {
         std::cin >> choice;
             switch (choice) {
             case'1':
-                registerUI(user);
+                registerUI();
                 mainMenu();
                 return;
             case'2':
-                logInUi(user);
+                logInUi();
                 mainMenu();
                 return;
             case '3':
@@ -42,16 +53,15 @@ void mainMenu() {
                 return;
             case '5':
                 user->eraseUser();
-                mainMenu();
+                return;
             default:
                 std::cout << "You've entered an invalid option. Please try again." << std::endl;
                 break;
             }
     }
-    delete user;
 }
 
-void registerUI(User* user) {
+void UI::registerUI() {
     std::string fileName = "../assets/graphic/register.txt";
     std::string fileToSave = "../assets/users.json";
 
@@ -70,42 +80,54 @@ void registerUI(User* user) {
 
     while (std::getline(file, line)) {
 
-        std::cout << line << std::endl;
-
         if (line.find("Email") != std::string::npos) 
         {
+            std::cout << line;
+
             std::cin >> email;
             while (!user->checkEmail(email, fileToSave)) {
                 std::cin >> email;
             }
         }
-        if (line.find("Username") != std::string::npos) 
+        else if (line.find("Username") != std::string::npos) 
         {
+            std::cout << line;
+
             std::cin >> userName;
             user->setUserName(userName);
         }
-        if (line.find("Password") != std::string::npos) 
+        else if (line.find("Password") != std::string::npos)
         {
+            std::cout << line;
+
             std::cin >> password;
             while (!user->checkPassword(password)) {
                 std::cin >> password;
             }
         }
-        if (line.find("Confirm Pass") != std::string::npos) 
+        else if (line.find("Confirm Pass") != std::string::npos)
         {
+            std::cout << line;
             std::cin >> confurmPassword;
             while (password != confurmPassword) {
                 std::cout << "Wrong password try again\n";
                 std::cin >> confurmPassword;
             }
         }
+        else 
+        {
+            std::cout << line << std::endl;
+        }
+        
     }
     Utiles::saveToFile(fileToSave, user->saveAsJson());
     
     file.close();
 }
 
-void logInUi(User* user) {
+void UI::logInUi() {
+
+
     std::string fileName = "../assets/graphic/login.txt";
     std::string fileToSave = "../assets/users.json";
 
@@ -120,24 +142,31 @@ void logInUi(User* user) {
         return;
     }
 
-    while (std::getline(file, line)) {
-
-        std::cout << line << std::endl;
+    while (std::getline(file, line)) 
+    {
 
         if (line.find("Email") != std::string::npos)
         {
+            std::cout << line;
+
             std::cin >> email;
             while (!user->loadFromFile(fileToSave,email)) {
                 std::cin >> email;
             }
         }
-        if (line.find("Password") != std::string::npos)
+        else if (line.find("Password") != std::string::npos)
         {
+            std::cout << line;
+
             std::cin >> password;
             while (user->getPassword() != password) {
                 std::cout << "Wrong password\n";
                 std::cin >> password;
             }
+        }
+        else
+        {
+            std::cout << line << std::endl;
         }
     }
     user->displayUser();

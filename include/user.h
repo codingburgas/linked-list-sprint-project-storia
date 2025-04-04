@@ -6,8 +6,6 @@
 class User
 {
 public:
-	User(std::string email = "", std::string password = "", std::string userName = "");
-	~User();
 
 	size_t getId();
 	std::string getEmail();
@@ -20,8 +18,6 @@ public:
 
 	nlohmann::json saveAsJson();
 	bool loadFromFile(const std::string& fileName, const std::string& emailToFind);
-	bool loadFromFile(const std::string& fileName, const size_t& index);
-	void deleteFromFile(const std::string& fileName);
 
 	void displayUser();
 	void eraseUser();

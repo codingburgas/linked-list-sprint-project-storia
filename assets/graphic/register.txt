@@ -7,10 +7,10 @@
       =================
 
     =====================
-     Enter Email   : ___
-     Enter Username: ___
-     Enter Password: ___
-     Confirm Pass  : ___
+     Enter Email  : 
+     Enter Username: 
+     Enter Password: 
+     Confirm Pass  : 
     =====================
 
     [ Register ]   [ Back ]
