@@ -9,6 +9,10 @@
 using std::string;
 using std::cout;
 
+User::User() {
+	this->isAdmin = false;
+}
+
 bool User::checkEmail(const string& email, const string& fileName)
 {
 	nlohmann::json data;
@@ -43,6 +47,8 @@ bool User::checkEmail(const string& email, const string& fileName)
 
 bool User::checkPassword(const string& password)
 {
+	const char specialCharacters[10] = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
+
 	if (password.size() < 6)
 	{
 		cout << "     Password must be at least 6 characters long: ";
@@ -64,6 +70,7 @@ nlohmann::json User::saveAsJson() {
 	data["email"] = this->email;
 	data["password"] = this->password;
 	data["userName"] = this->userName;
+	data["isAdmin"] = this->isAdmin;
 	return data;
 }
 
@@ -99,6 +106,7 @@ void User::eraseUser() {
 	this->email = "";
 	this->userName ="";
 	this->password = "";
+	this->isAdmin = false;
 }
 
 string User::getEmail()
@@ -119,6 +127,16 @@ string User::getUserName()
 size_t User::getId()
 {
 	return this->id;
+}
+
+bool User::getIsAdmin() 
+{
+	return this->isAdmin;
+}
+
+void User::setAdmin() 
+{
+	this->isAdmin = true;
 }
 
 void User::setUserName(std::string name) {

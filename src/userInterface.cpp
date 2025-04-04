@@ -2,14 +2,13 @@
 
 UI::UI()
 {
-    user = new User;
+    this->user = new User;
     startScreen();
 }
 
 UI::~UI() {
     delete user;
 }
-
 
 void UI::startScreen()
 {
@@ -62,12 +61,10 @@ void UI::mainMenu() {
 }
 
 void UI::registerUI() {
-    std::string fileName = "../assets/graphic/register.txt";
-    std::string fileToSave = "../assets/users.json";
+    const char fileName[] = "../assets/graphic/register.txt";
+    const char fileToSave[] = "../assets/users.json";
 
     std::string line;
-    std::string email;
-    std::string userName;
     std::string password;
     std::string confurmPassword;
 
@@ -84,6 +81,7 @@ void UI::registerUI() {
         {
             std::cout << line;
 
+            std::string email;
             std::cin >> email;
             while (!user->checkEmail(email, fileToSave)) {
                 std::cin >> email;
@@ -93,6 +91,7 @@ void UI::registerUI() {
         {
             std::cout << line;
 
+            std::string userName;
             std::cin >> userName;
             user->setUserName(userName);
         }
@@ -105,13 +104,24 @@ void UI::registerUI() {
                 std::cin >> password;
             }
         }
-        else if (line.find("Confirm Pass") != std::string::npos)
+        else if (line.find("Confirm Password") != std::string::npos)
         {
             std::cout << line;
             std::cin >> confurmPassword;
             while (password != confurmPassword) {
-                std::cout << "Wrong password try again\n";
+                std::cout << "     Wrong password try again";
                 std::cin >> confurmPassword;
+            }
+        }
+        else if (line.find("Registering as Admin? ") != std::string::npos)
+        {
+            std::cout << line;
+
+            char choise;
+            std::cin >> choise;
+            if (choise == 'y' || choise == 'Y')
+            {
+                registerAsAdmin();
             }
         }
         else 
@@ -125,11 +135,28 @@ void UI::registerUI() {
     file.close();
 }
 
+void UI::registerAsAdmin()
+{
+    const char adminKey[] = "Storia22";
+
+    std::cout << "     Enter key: ";
+
+    std::string keyToEnter;
+    std::cin >> keyToEnter;
+
+    while (keyToEnter != adminKey) {
+        std::cin >> keyToEnter;
+        std::cout << "     Wrong key: ";
+    }
+
+    user->setAdmin();
+}
+
 void UI::logInUi() {
 
 
-    std::string fileName = "../assets/graphic/login.txt";
-    std::string fileToSave = "../assets/users.json";
+    const char fileName[] = "../assets/graphic/login.txt";
+    const char fileToSave[] = "../assets/users.json";
 
     std::string line;
     std::string email;

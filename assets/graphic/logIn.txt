@@ -8,7 +8,8 @@
 
      =====================
        Email   : 
-       Password: 
+       Password:
+       Role    :
      =====================
 
     [ Login ]   [ Register ]

@@ -11,6 +11,7 @@ public:
 private:
 	void startScreen();
 	void registerUI();
+	void registerAsAdmin();
 	void logInUi();
 
 	User* user;

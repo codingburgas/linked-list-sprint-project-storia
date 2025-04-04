@@ -10,7 +10,8 @@
      Enter Email  : 
      Enter Username: 
      Enter Password: 
-     Confirm Pass  : 
+     Confirm Password: 
+     Registering as Admin? (y/n): 
     =====================
 
     [ Register ]   [ Back ]
