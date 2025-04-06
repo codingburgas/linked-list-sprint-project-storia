@@ -1,3 +1,11 @@
 #pragma once
+#include"pch.h"
 
-void stagesMenu();
+class Stages
+{
+public:
+	static void stagesMenu(Ui& ui);
+private:
+	void displeyStage(const std::string& mapPath, const std::string& infoPath);
+	void choiceSwitch(const std::string& Leaders, Ui& ui);
+};

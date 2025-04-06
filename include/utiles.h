@@ -6,6 +6,9 @@
 class Utiles
 {
 public:
+	static void SetColor(int textColor);
+	static void resetColor();
+
 	static nlohmann::json loadFile(const std::string& fileName);
 	static void displayFile(const std::string& fileName);
 

@@ -3,6 +3,16 @@
 #include <fstream>
 #include <iostream>
 
+void Utiles::SetColor(int textColor)
+{
+	std::cout << "\033[" << textColor << "m";
+}
+
+void Utiles::resetColor()
+{
+	std::cout << "\033[0m";
+}
+
 nlohmann::json Utiles::loadFile(const std::string& fileName)
 {
 	nlohmann::json dataToSave;

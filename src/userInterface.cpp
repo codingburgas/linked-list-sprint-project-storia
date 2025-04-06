@@ -1,18 +1,18 @@
 #include "pch.h"
 
-UI::UI()
+Ui::Ui()
 {
-    this->user = new User;
     startScreen();
+    this->user = new User;
 }
 
-UI::~UI() {
+Ui::~Ui() {
     delete user;
 }
 
-void UI::startScreen()
+void Ui::startScreen()
 {
-    SetColor(32);
+    Utiles::SetColor(32);
 
     Utiles::displayFile("../assets/graphic/startScreen.txt");
 
@@ -20,36 +20,38 @@ void UI::startScreen()
         mainMenu();
         break;
     }
-    resetColor();
+    Utiles::resetColor();
 }
 
-
-void UI::mainMenu() {
+void Ui::mainMenu() {
 
     //Clear console
     system("cls");
     Utiles::displayFile("../assets/graphic/header.txt");
 
     char choice;
-    User* user = new User;
-    std::cout << "Choice: ";
 
     //Loop until valid choice
     while (true) {
+        std::cout << "Choice: ";
         std::cin >> choice;
+
             switch (choice) {
             case'1':
-                registerUI();
-                mainMenu();
-                return;
+                registerUi();
+                std::cout << "Registration successful\n";
+                break;
             case'2':
                 logInUi();
-                mainMenu();
-                return;
+                std::cout << "Welcome back\n";
+                break;
+            case'4':
+                timeLIneUi();
+                break;
             case '3':
-                stagesMenu();
-                resetColor();
-                return;
+                Stages::stagesMenu(*this);
+                Utiles::resetColor();
+                break;
             case '5':
                 user->eraseUser();
                 return;
@@ -60,7 +62,7 @@ void UI::mainMenu() {
     }
 }
 
-void UI::registerUI() {
+void Ui::registerUi() {
     const char fileName[] = "../assets/graphic/register.txt";
     const char fileToSave[] = "../assets/users.json";
 
@@ -115,10 +117,10 @@ void UI::registerUI() {
         }
         else if (line.find("Registering as Admin? ") != std::string::npos)
         {
-            std::cout << line;
-
             char choise;
+            std::cout << line;
             std::cin >> choise;
+
             if (choise == 'y' || choise == 'Y')
             {
                 registerAsAdmin();
@@ -130,12 +132,13 @@ void UI::registerUI() {
         }
         
     }
+
     Utiles::saveToFile(fileToSave, user->saveAsJson());
-    
     file.close();
+
 }
 
-void UI::registerAsAdmin()
+void Ui::registerAsAdmin()
 {
     const char adminKey[] = "Storia22";
 
@@ -145,14 +148,14 @@ void UI::registerAsAdmin()
     std::cin >> keyToEnter;
 
     while (keyToEnter != adminKey) {
-        std::cin >> keyToEnter;
         std::cout << "     Wrong key: ";
+        std::cin >> keyToEnter;
     }
 
     user->setAdmin();
 }
 
-void UI::logInUi() {
+void Ui::logInUi() {
 
 
     const char fileName[] = "../assets/graphic/login.txt";
@@ -196,7 +199,24 @@ void UI::logInUi() {
             std::cout << line << std::endl;
         }
     }
-    user->displayUser();
 
+    user->displayUser();
     file.close();
+}
+
+void Ui::timeLIneUi() 
+{
+    if (!user->isUserEmpty())
+    {
+        const char fileName[] = "../assets/events.json";
+        Timeline line;
+        line.loadDefaultEvents();
+        line.loadEventsFromJson(fileName);
+        line.displayEvents();
+    }
+    else
+    {
+        std::cout << "Must login or register\n";
+        return;
+    }
 }

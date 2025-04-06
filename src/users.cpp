@@ -65,6 +65,11 @@ bool User::checkPassword(const string& password)
 	return false;
 }
 
+bool User::isUserEmpty()
+{
+	return this->email.size() == 0;
+}
+
 nlohmann::json User::saveAsJson() {
 	nlohmann::json data;
 	data["email"] = this->email;
@@ -90,7 +95,7 @@ bool User::loadFromFile(const string& fileName, const string& emailToFind)
 			return true;
 		}
 	}
-	std::cerr << "User not found!";
+	std::cerr << "User not found: ";
 	return false;
 }
 

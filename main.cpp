@@ -2,5 +2,5 @@
 
 int main() {
     //mainMenu();
-    UI ui;
+    Ui ui;
 }
