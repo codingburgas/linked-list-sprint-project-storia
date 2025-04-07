@@ -2,8 +2,8 @@
 
 Ui::Ui()
 {
-    startScreen();
     this->user = new User;
+    startScreen();
 }
 
 Ui::~Ui() {
