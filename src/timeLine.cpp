@@ -214,3 +214,43 @@ void Timeline::compareEvents(Event event1, Event event2)
         }
     }
 }
+
+void Timeline::chooseEventsToCompare()
+{
+    bool event1Found = false;
+    bool event2Found = false;
+    Event event1, event2;
+    std::string event1Title, event2Title;
+
+    cin.ignore();
+    std::cout << "Enter title of first event to compare: ";
+    std::getline(std::cin, event1Title);
+    std::cout << "Enter title of second event to compare: ";
+    std::getline(std::cin, event2Title);
+
+    Event* current = head;
+
+    while (current && (!event1Found || !event2Found))
+    {
+        if (current->title == event1Title)
+        {
+            event1 = *current;
+            event1Found = true;
+        }
+        else if (current->title == event2Title)
+        {
+            event2 = *current;
+            event2Found = true;
+        }
+
+        current = current->next;
+    }
+
+    if (!event1Found || !event2Found)
+    {
+        std::cout << "One or both events not found!" << std::endl;
+        return;
+    }
+
+    compareEvents(event1, event2);
+}
