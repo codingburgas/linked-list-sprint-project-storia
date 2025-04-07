@@ -13,5 +13,7 @@ public:
 	static void displayFile(const std::string& fileName);
 
 	static void saveToFile(const std::string& fileName, const nlohmann::json& data);
+	static std::string sha256FromString(const std::string& input);
+
 	static bool isFileEmpty(const std::string& fileName);
 };

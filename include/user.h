@@ -8,14 +8,14 @@ class User
 public:
 	User();
 
-	size_t getId();
-	bool getIsAdmin();
-	std::string getEmail();
-	std::string getPassword();
-	std::string getUserName();
+	std::string getEmail() { return this->email;}
+	std::string getPassword() { return this->password;}
+	std::string getUserName() { return this->userName;}
+	std::size_t getId()	{ return this->id;}
+	bool getIsAdmin() { return this->isAdmin;}
 
-	void setUserName(std::string name);
-	void setAdmin();
+	void setAdmin() { this->isAdmin = true;}
+	void setUserName(std::string name) { this->userName = name;}
 
 	bool checkEmail(const std::string& email, const std::string& fileName);
 	bool checkPassword(const std::string& password);

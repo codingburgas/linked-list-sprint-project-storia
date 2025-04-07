@@ -72,8 +72,8 @@ bool User::isUserEmpty()
 
 nlohmann::json User::saveAsJson() {
 	nlohmann::json data;
-	data["email"] = this->email;
-	data["password"] = this->password;
+	data["email"] = Utiles::sha256FromString(this->email);
+	data["password"] = Utiles::sha256FromString(this->password);
 	data["userName"] = this->userName;
 	data["isAdmin"] = this->isAdmin;
 	return data;
@@ -112,38 +112,4 @@ void User::eraseUser() {
 	this->userName ="";
 	this->password = "";
 	this->isAdmin = false;
-}
-
-string User::getEmail()
-{
-	return this->email;
-}
-
-string User::getPassword()
-{
-	return this->password;
-}
-
-string User::getUserName()
-{
-	return this->userName;
-}
-
-size_t User::getId()
-{
-	return this->id;
-}
-
-bool User::getIsAdmin() 
-{
-	return this->isAdmin;
-}
-
-void User::setAdmin() 
-{
-	this->isAdmin = true;
-}
-
-void User::setUserName(std::string name) {
-	this->userName = name;
 }

@@ -8,7 +8,7 @@ public:
 	~Ui();
 
 	void mainMenu();
-	void timeLIneUi();
+	void timeLineUi();
 private:
 	void startScreen();
 
@@ -16,8 +16,6 @@ private:
 	void registerAsAdmin();
 
 	void logInUi();
-
-
 
 	User* user;
 };

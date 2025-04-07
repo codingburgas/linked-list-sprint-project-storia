@@ -5,8 +5,6 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 
-Ui ui;
-
 Timeline::Timeline() {
     head = nullptr;
 }
@@ -157,7 +155,7 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
     }
 }
 
-void Timeline::compareEvents(Event event1, Event event2)
+void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
 {
     system("cls");
     cout << event1.title << event2.title << endl << endl;
@@ -199,7 +197,7 @@ void Timeline::compareEvents(Event event1, Event event2)
         switch (choice) {
         case'T':
         case't':
-            ui.timeLIneUi();
+            ui.timeLineUi();
             break;
         case 'S':
         case 's':
@@ -215,7 +213,7 @@ void Timeline::compareEvents(Event event1, Event event2)
     }
 }
 
-void Timeline::chooseEventsToCompare()
+void Timeline::chooseEventsToCompare(Ui& ui)
 {
     bool event1Found = false;
     bool event2Found = false;
@@ -252,5 +250,5 @@ void Timeline::chooseEventsToCompare()
         return;
     }
 
-    compareEvents(event1, event2);
+    compareEvents(event1, event2,ui);
 }

@@ -2,6 +2,9 @@
 
 #include <fstream>
 #include <iostream>
+#include <iomanip>
+#include <sstream>
+#include "crypto.h"
 
 void Utiles::SetColor(int textColor)
 {
@@ -55,8 +58,6 @@ void Utiles::saveToFile(const std::string& fileName, const nlohmann::json& data)
 	}
 
 	inData["id"] = existingData.size() + 1;
-
-
 	existingData.push_back(inData);
 
 	std::ofstream outFile(fileName);
@@ -69,7 +70,6 @@ void Utiles::saveToFile(const std::string& fileName, const nlohmann::json& data)
 		std::cerr << "Could not open file for writing!" << std::endl;
 	}
 }
-
 
 bool Utiles::isFileEmpty(const std::string& fileName) {
     std::ifstream file(fileName);
@@ -84,4 +84,20 @@ bool Utiles::isFileEmpty(const std::string& fileName) {
 
     file.close();
     return fileSize == 0;
+}
+
+std::string Utiles::sha256FromString(const std::string& input) {
+	BYTE hash[32];
+	SHA256_CTX ctx;
+
+	Crypto::sha256_init(&ctx);
+	Crypto::sha256_update(&ctx, reinterpret_cast<const BYTE*>(input.c_str()), input.size());
+	Crypto::sha256_final(&ctx, hash);
+
+	std::stringstream ss;
+	for (int i = 0; i < 32; i++) {
+		ss << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(hash[i]);
+	}
+
+	return ss.str();
 }

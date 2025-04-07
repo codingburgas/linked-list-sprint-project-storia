@@ -46,7 +46,7 @@ void Ui::mainMenu() {
                 std::cout << "Welcome back\n";
                 break;
             case'4':
-                timeLIneUi();
+                timeLineUi();
                 break;
             case '3':
                 Stages::stagesMenu(*this);
@@ -178,9 +178,9 @@ void Ui::logInUi() {
         if (line.find("Email") != std::string::npos)
         {
             std::cout << line;
-
             std::cin >> email;
-            while (!user->loadFromFile(fileToSave,email)) {
+            
+            while (!user->loadFromFile(fileToSave, Utiles::sha256FromString(email))) {
                 std::cin >> email;
             }
         }
@@ -189,7 +189,7 @@ void Ui::logInUi() {
             std::cout << line;
 
             std::cin >> password;
-            while (user->getPassword() != password) {
+            while (user->getPassword() != Utiles::sha256FromString(password)) {
                 std::cout << "Wrong password\n";
                 std::cin >> password;
             }
@@ -204,7 +204,7 @@ void Ui::logInUi() {
     file.close();
 }
 
-void Ui::timeLIneUi() 
+void Ui::timeLineUi() 
 {
     char choice;
     if (!user->isUserEmpty())
@@ -228,7 +228,7 @@ void Ui::timeLIneUi()
             switch (choice) {
             case'Y':
             case'y':
-                line.chooseEventsToCompare();
+                line.chooseEventsToCompare(*this);
                 break;
             case 'N':
             case 'n':

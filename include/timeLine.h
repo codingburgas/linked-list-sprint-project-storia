@@ -24,9 +24,10 @@ public:
     void loadEventsFromJson(const std::string& fileName);
     void displayEvents();
     void deleteEvent(const std::string& fileName, int year);
-    void chooseEventsToCompare();
-    void compareEvents(Event event1, Event event2);
+    void chooseEventsToCompare(Ui& ui);
 private:
+    void compareEvents(Event event1, Event event2, Ui& ui);
+
     Event* head;
 };
 
