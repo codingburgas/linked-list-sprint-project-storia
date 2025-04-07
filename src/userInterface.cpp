@@ -206,6 +206,7 @@ void Ui::logInUi() {
 
 void Ui::timeLIneUi() 
 {
+    char choice;
     if (!user->isUserEmpty())
     {
         const char fileName[] = "../assets/events.json";
@@ -213,6 +214,34 @@ void Ui::timeLIneUi()
         line.loadDefaultEvents();
         line.loadEventsFromJson(fileName);
         line.displayEvents();
+
+        std::cout << "Would you like to compare some of these events?" << std::endl;
+        std::cout << "Yes[Y]" << std::endl;
+        std::cout << "No[N]" << std::endl;
+        std::cout << "Main menu[M]" << std::endl;
+
+        while (true) {
+            std::cout << "Choice: ";
+            std::cin.ignore();
+            std::cin >> choice;
+
+            switch (choice) {
+            case'Y':
+            case'y':
+                line.chooseEventsToCompare();
+                break;
+            case 'N':
+            case 'n':
+                break;
+            case'M':
+            case'm':
+                mainMenu();
+                break;
+            default:
+                std::cout << "You've entered an invalid option. Please try again." << std::endl;
+                break;
+            }
+        }
     }
     else
     {

@@ -88,18 +88,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\admin.h" />
     <ClInclude Include="..\include\pch.h" />
     <ClInclude Include="..\include\setColor.h" />
     <ClInclude Include="..\include\stagesPage.h" />
+    <ClInclude Include="..\include\timeLine.h" />
+    <ClInclude Include="..\include\user.h" />
     <ClInclude Include="..\include\userInterface.h" />
+    <ClInclude Include="..\include\utiles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\src\admin.cpp" />
     <ClCompile Include="..\src\setColor.cpp" />
     <ClCompile Include="..\src\stagesPage.cpp" />
+    <ClCompile Include="..\src\timeLine.cpp" />
     <ClCompile Include="..\src\userInterface.cpp" />
+    <ClCompile Include="..\src\users.cpp" />
+    <ClCompile Include="..\src\utiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\assets\events.json" />
     <None Include="..\assets\graphic\header.txt" />
     <None Include="..\assets\graphic\logIn.txt" />
     <None Include="..\assets\graphic\maps\1019-1206.txt" />
@@ -126,6 +135,7 @@
     <None Include="..\assets\graphic\stages\983-1018Leaders.txt" />
     <None Include="..\assets\graphic\stagesHeader.txt" />
     <None Include="..\assets\graphic\startScreen.txt" />
+    <None Include="..\assets\users.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

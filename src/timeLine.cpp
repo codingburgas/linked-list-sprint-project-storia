@@ -5,6 +5,7 @@ using std::cout;
 using std::endl;
 using std::ifstream;
 
+Ui ui;
 
 Timeline::Timeline() {
     head = nullptr;
@@ -156,4 +157,100 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
     }
 }
 
+void Timeline::compareEvents(Event event1, Event event2)
+{
+    system("cls");
+    cout << event1.title << event2.title << endl << endl;
+    cout << "Started: " << event1.year << event2.year << endl << endl;
+    cout << "Victims: " << event1.victims << event2.victims << endl << endl;
+    cout << "Part of Bulgaria: " << event1.partOfBulgaria << event2.partOfBulgaria << endl << endl;
+    cout << "Leader: " << event1.leader << event2.leader << endl << endl;
+    cout << "Countries it affected: " << event1.countries << event2.countries << endl << endl;
 
+    cout << "Conclusion: " << endl;
+    if (event1.year < event2.year) cout << event1.title << " happened before " << event2.title << ". ";
+    else if (event1.year > event2.year) cout << event1.title << " happened after " << event2.title << ". ";
+    else cout << "Both events started in " << event1.year << ". ";
+
+    if (event1.victims < event2.victims) cout << event1.title << " had less victims than " << event2.title;
+    else if (event1.year > event2.year) cout << event1.title << " had more victims than " << event2.title;
+    else cout << "Both events had " << event1.victims << " victims" << endl;
+
+    if (event1.partOfBulgaria != event2.partOfBulgaria) cout << event1.title << " happened in " << event1.partOfBulgaria << " whereas " << event2.title << " happened in " << event2.partOfBulgaria << endl;
+    else cout << "Both events happened in " << event1.partOfBulgaria << ". ";
+
+    if (event1.leader != event2.leader) cout << event1.title << " happened under the rule of " << event1.leader << " and " << event2.title << "happened under the rule of " << event2.leader << endl;
+    else cout << "Both events happened under the rule of " << event1.leader << endl;
+
+    if (event1.countries != event2.countries) cout << event1.title << " affected " << event1.countries << " while " << event2.title << " affected " << event2.countries << endl;
+    else cout << "Both events affected " << event1.countries << endl << endl;
+
+    std::cout << "Where to next?" << std::endl;
+    std::cout << "Timeline[T]" << std::endl;
+    std::cout << "Stay[S]" << std::endl;
+    std::cout << "Main menu[M]" << std::endl;
+
+    char choice;
+    while (true) {
+        std::cout << "Choice: ";
+        std::cin.ignore();
+        std::cin >> choice;
+
+        switch (choice) {
+        case'T':
+        case't':
+            ui.timeLIneUi();
+            break;
+        case 'S':
+        case 's':
+            break;
+        case'M':
+        case'm':
+            ui.mainMenu();
+            break;
+        default:
+            std::cout << "You've entered an invalid option. Please try again." << std::endl;
+            break;
+        }
+    }
+}
+
+void Timeline::chooseEventsToCompare()
+{
+    bool event1Found = false;
+    bool event2Found = false;
+    Event event1, event2;
+    std::string event1Title, event2Title;
+
+    cin.ignore();
+    std::cout << "Enter title of first event to compare: ";
+    std::getline(std::cin, event1Title);
+    std::cout << "Enter title of second event to compare: ";
+    std::getline(std::cin, event2Title);
+
+    Event* current = head;
+
+    while (current && (!event1Found || !event2Found))
+    {
+        if (current->title == event1Title)
+        {
+            event1 = *current;
+            event1Found = true;
+        }
+        else if (current->title == event2Title)
+        {
+            event2 = *current;
+            event2Found = true;
+        }
+
+        current = current->next;
+    }
+
+    if (!event1Found || !event2Found)
+    {
+        std::cout << "One or both events not found!" << std::endl;
+        return;
+    }
+
+    compareEvents(event1, event2);
+}
