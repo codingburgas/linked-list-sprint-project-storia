@@ -4,6 +4,7 @@
 #include "../include/timeLine.h"
 #include "../include/stagesPage.h"
 #include "../include/utiles.h"
+#include "../include/userInterface.h"
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <filesystem>
@@ -324,4 +325,90 @@ namespace UnitTest
 			}
 		}
 	};
-}
+
+		TEST_CLASS(UiTests)
+		{
+		public:
+			TEST_METHOD_INITIALIZE(SetUp)
+			{
+				std::ofstream testFile("test_users.json");
+				testFile << R"([{"id":1,"email":"test@test.com","userName":"testuser","password":"hash","isAdmin":false}])";
+				testFile.close();
+			}
+
+			TEST_METHOD_CLEANUP(Cleanup)
+			{
+				std::remove("test_users.json");
+				std::remove("test_events.json");
+			}
+
+			TEST_METHOD(MainMenu_ValidChoice_NavigatesCorrectly)
+			{
+				std::istringstream input("1\n");
+				std::cin.rdbuf(input.rdbuf());
+
+				Ui ui;
+
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+				try {
+					ui.mainMenu();
+					std::string output = buffer.str();
+					Assert::IsTrue(output.find("Registration") != std::string::npos);
+				}
+				catch (...) {
+					std::cout.rdbuf(old);
+					Assert::Fail(L"Exception thrown");
+				}
+
+				std::cout.rdbuf(old);
+			}
+
+			TEST_METHOD(RegisterUi_ValidInput_CreatesUser)
+			{
+				std::istringstream input("test@test.com\ntestuser\nValidPass123!\nValidPass123!\nn\n");
+				std::cin.rdbuf(input.rdbuf());
+
+				Ui ui;
+
+				nlohmann::json users = Utiles::loadFile("test_users.json");
+				Assert::AreEqual(static_cast<size_t>(2), users.size());
+				Assert::AreEqual(std::string("testuser"), users[1]["userName"].get<std::string>());
+			}
+
+			TEST_METHOD(LogInUi_ValidCredentials_LogsInUser)
+			{
+				std::istringstream input("test@test.com\npassword\n");
+				std::cin.rdbuf(input.rdbuf());
+
+				Ui ui;
+
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+				std::string output = buffer.str();
+				std::cout.rdbuf(old);
+
+				Assert::IsTrue(output.find("Welcome") != std::string::npos);
+			}
+
+			TEST_METHOD(TimeLineUi_AuthenticatedUser_DisplaysEvents)
+			{
+				std::istringstream input("test@test.com\npassword\n");
+				std::cin.rdbuf(input.rdbuf());
+
+				Ui ui;
+
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+				ui.timeLineUi();
+
+				std::string output = buffer.str();
+				std::cout.rdbuf(old);
+
+				Assert::IsTrue(output.find("events") != std::string::npos);
+			}
+		};
+	}
