@@ -158,6 +158,8 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
 void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
 {
     system("cls");
+    Utiles::displayFile("../assets/graphic/eventsComparisonHeader.txt");
+    cout << endl << endl;
     cout << std::left << std::setw(event1.title.size() + 10) << event1.title << event2.title << endl << endl;
     cout << "Started: " << std::left << std::setw(std::to_string(event1.year).size() + 5) << event1.year << event2.year << endl << endl;
     cout << "Victims: " << std::left << std::setw(std::to_string(event1.victims).size() + 5) << event1.victims << event2.victims << endl << endl;
