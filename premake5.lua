@@ -41,7 +41,8 @@ project "test"
    targetdir "bin/%{cfg.buildcfg}"
  
    files { "test/**.cpp", "test/**.h", "test/**.hpp" }
-   includedirs { "include", "lib/json/include" }
+   includedirs { "include", "lib/json/include", "lib/crypto" }
+   links { "crypto" }
  
    filter "configurations:Debug"
       defines { "DEBUG" }
