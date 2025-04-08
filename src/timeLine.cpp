@@ -9,6 +9,7 @@ Timeline::Timeline() {
     head = nullptr;
 }
 
+
 void Timeline::loadDefaultEvents() {
     addEvent("Foundation of Bulgaria", 681, 0, "Balkans", "Khan Asparuh", "Bulgaria", "Establishment of the First Bulgarian State", "Default");
     addEvent("Christianization of Bulgaria", 864, 0, "Bulgaria", "Prince Boris I", "Bulgaria", "Official adoption of Christianity", "Default");
@@ -56,6 +57,11 @@ void Timeline::editEvent(const std::string& fileName, int year) {
 void Timeline::saveEventsToJson(const std::string& fileName)
 {
     Event* current = this->head;
+    nlohmann::json existingData;
+
+    if (!existingData.is_array()) {
+        existingData = nlohmann::json::array();
+    }
 
     while (current != nullptr) {
         nlohmann::json data;
@@ -68,8 +74,18 @@ void Timeline::saveEventsToJson(const std::string& fileName)
         data["description"] = current->description;
         data["username"] = current->username;
 
-        Utiles::saveToFile(fileName, data);
+        existingData.push_back(data);
         current = current->next;
+    }
+
+    std::ofstream outFile(fileName);
+    if (outFile.is_open()) {
+        outFile << existingData.dump(4);
+        outFile.close();
+        //std::cout << "Data saved to " << fileName << std::endl;
+    }
+    else {
+        std::cerr << "Could not open file for writing!" << std::endl;
     }
 }
 
