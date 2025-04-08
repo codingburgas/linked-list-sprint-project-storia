@@ -1,9 +1,9 @@
 <p align="center">
-    <img src="https://cdn.discordapp.com/attachments/593166319138897923/1353824011242442802/storiaBanner.jpg?ex=67e30e5d&is=67e1bcdd&hm=acbcd632c22b816ccb7b99050fcbd5235bb1a60786be91a268b6b8b020acc7a8&">
+    <img src="https://cdn.discordapp.com/attachments/1351577595694809283/1359255789000458361/storiaBanner.jpg?ex=67f6d119&is=67f57f99&hm=186304d0e514b138831cddc525af0503aae9c71446792ed4801313bb7f6f0b00&">
 </p>
 
 <p align="center">
-    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/593166319138897923/1353828311981363230/Rectangle_1.png?ex=67e3125e&is=67e1c0de&hm=65615d48b0a8e3ab8789a113a1236acc0c2a4eb66b1e7bf882c0cf88ef2f4065&"/>
+    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/723998679400316949/1359257189121786087/Rectangle_1.png?ex=67f6d267&is=67f580e7&hm=ccdd448b195bd1593ff1b42a6b13ef9f35eeb12a2e53e5b21322e07b33b6aefb&"/>
 </p>
 
 <h3 align="center">Historic Timeline</h3>
@@ -25,11 +25,34 @@
 </div>
 <br>
 <p align="center">
-    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/593166319138897923/1353828311981363230/Rectangle_1.png?ex=67e3125e&is=67e1c0de&hm=65615d48b0a8e3ab8789a113a1236acc0c2a4eb66b1e7bf882c0cf88ef2f4065&"/>
+    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/723998679400316949/1359257189121786087/Rectangle_1.png?ex=67f6d267&is=67f580e7&hm=ccdd448b195bd1593ff1b42a6b13ef9f35eeb12a2e53e5b21322e07b33b6aefb&"/>
 </p>
+
 
 # 🏰 About
 ### Storia is C++ application for listing historic events like a timeline with descriptions in the style of year, place and much more using linked lists. Users can create an account and add events or look at previously added without making an account.
+
+# 📸 Screenshot from our application
+<details open="open">
+<summary>Show</summary>
+<br>
+
+|                        Start Menu                                     |
+| :-------------------------------------------------------------------: | 
+![Screenshot 2025-03-24 153419](https://cdn.discordapp.com/attachments/723998679400316949/1359255017135013912/image.png?ex=67f6d061&is=67f57ee1&hm=66352801ba57d10f6b72f150369efd3bf719d7130ec70bf6c933a5c3d605f7e0&)
+
+
+|                                Main menu                              |
+| :-------------------------------------------------------------------: | 
+![Screenshot 2025-03-24 153451](https://cdn.discordapp.com/attachments/723998679400316949/1359255076023304443/image.png?ex=67f6d06f&is=67f57eef&hm=e11a4c63a5b9021ee752b224e648787b9b2743b92970f8654d6190772db64eb9&)
+
+|                               Historical Stages                       |
+| :-------------------------------------------------------------------: | 
+![Screenshot 2025-03-24 153528](https://cdn.discordapp.com/attachments/723998679400316949/1359255136735592611/image.png?ex=67f6d07e&is=67f57efe&hm=24e2081e44e1b9010183c1dec8013e95d3e90c759d184ab12a7fc39e4659f93f&)
+
+### Run our application to see more!
+</details>
+
 
 # ❓ How does it work?
 ### After running our exe file, which opens our applications, users are greeted with the main menu, where they can log in their accounts, create one or just look at sorted historic events. After logging into their account, users are free to add more and more events.
@@ -53,16 +76,17 @@
   <img width="40" height="40" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/6ac1857f-f453-48fa-b3b9-4033de693b17/dbd0jys-fde5ad33-8c95-4dea-83fc-56c72aea2eb1.png">
   <img width="40" height="40" src="https://mailmeteor.com/logos/assets/PNG/Microsoft_Office_Word_Logo_512px.png">
   <img width="40" height="40" src="https://mailmeteor.com/logos/assets/PNG/Microsoft_Office_PowerPoint_Logo_512px.png">  
+  <img width="40" height="40" src="https://static.vecteezy.com/system/resources/thumbnails/027/179/363/small/microsoft-excel-icon-logo-symbol-free-png.png">  
 </div>
 
 # 📁 Documents
 ### Code & Team Documentation
-  - [Documentation]()
+  - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/idraykova22_codingburgas_bg/Eeb0h5iugmZPtfpjZ_UwHagBqlQLDj9ouRXAb-TZ84PwAQ?e=4CTswS)
   - [Doxygen Documentation]()
   - [QA Documentation]()
 
 ### Presenting
-  - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/idraykova22_codingburgas_bg/EaI02WHhRhtHlts7C_bQEx4B-lro4sRRGypcLrA62b-gIg?e=pXLeGC)
+  - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/idraykova22_codingburgas_bg/EY-QCA0y49FNi2AytGnpSPUBorgXGoHIiB3nXnRsoLTeBQ?e=RjzbRL)
 
 # 👥 Team
 
@@ -74,7 +98,7 @@
 | <h3><a href = "https://github.com/RVParvanov22">Rumen Parvanov</a></h3> |  Q&A  | 10V |
 
 <p align="center">
-    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/593166319138897923/1353828311981363230/Rectangle_1.png?ex=67e3125e&is=67e1c0de&hm=65615d48b0a8e3ab8789a113a1236acc0c2a4eb66b1e7bf882c0cf88ef2f4065&"/>
+    <img width="1920" height="3" src="https://cdn.discordapp.com/attachments/723998679400316949/1359257189121786087/Rectangle_1.png?ex=67f6d267&is=67f580e7&hm=ccdd448b195bd1593ff1b42a6b13ef9f35eeb12a2e53e5b21322e07b33b6aefb&"/>
 </p>
 
 <h1 align="center">
