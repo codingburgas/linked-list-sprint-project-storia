@@ -15,3 +15,4 @@
                 [3] Learn History
                 [4] History timeline
                 [5] Log out
+                [6] Leave the program

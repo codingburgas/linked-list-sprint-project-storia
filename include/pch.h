@@ -8,6 +8,10 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <regex>
+
+#include <crypto.h>
+#include <nlohmann/json.hpp>
 
 #include "utiles.h"
 #include "user.h"

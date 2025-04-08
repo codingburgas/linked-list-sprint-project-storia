@@ -54,6 +54,10 @@ void Ui::mainMenu() {
                 break;
             case '5':
                 user->eraseUser();
+                std::cout << "You log out";
+                break;
+            case '6':
+                std::cout << "See you next time";
                 return;
             default:
                 std::cout << "You've entered an invalid option. Please try again." << std::endl;

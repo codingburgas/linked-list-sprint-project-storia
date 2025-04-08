@@ -1,11 +1,8 @@
 #pragma once
+#include "pch.h"
 
-#include <string>
-#include <nlohmann/json.hpp>
-
-class Utiles
+namespace Utiles
 {
-public:
 	static void SetColor(int textColor);
 	static void resetColor();
 

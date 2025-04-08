@@ -1,10 +1,4 @@
-#include "../include/User.h"
-#include "../include/Utiles.h"
-
-#include <iostream>
-#include <cstdlib>
-#include <regex>
-#include <fstream>
+#include "pch.h"
 
 using std::string;
 using std::cout;
