@@ -21,6 +21,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\admin.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\pch.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -30,16 +33,13 @@
     <ClInclude Include="..\include\stagesPage.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\userInterface.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\admin.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\timeLine.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\user.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\userInterface.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\include\utiles.h">
@@ -48,19 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\src\admin.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\setColor.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\stagesPage.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\userInterface.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\admin.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\timeLine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\userInterface.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\users.cpp">
@@ -71,6 +71,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\assets\events.json">
+      <Filter>assets</Filter>
+    </None>
     <None Include="..\assets\graphic\header.txt">
       <Filter>assets\graphic</Filter>
     </None>
@@ -148,9 +151,6 @@
     </None>
     <None Include="..\assets\graphic\startScreen.txt">
       <Filter>assets\graphic</Filter>
-    </None>
-    <None Include="..\assets\events.json">
-      <Filter>assets</Filter>
     </None>
     <None Include="..\assets\users.json">
       <Filter>assets</Filter>
