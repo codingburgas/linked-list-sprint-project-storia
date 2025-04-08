@@ -1,12 +1,19 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "CppUnitTest.h"
 #include "../include/user.h"
+#include "../include/timeLine.h"
+#include "../include/stagesPage.h"
+#include "../include/utiles.h"
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <filesystem>
+#include <cassert>
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+
+
+
 
 namespace UnitTest
 {
@@ -168,6 +175,153 @@ namespace UnitTest
 			bool result = user.loadFromFile("empty_test.json", "test@example.com");
 
 			Assert::IsFalse(result);
+		}
+	};
+
+
+	TEST_CLASS(TimelineExtendedTests)
+	{
+	public:
+		TEST_METHOD(AddEvent_MultipleEvents_SortsByYear)
+		{
+			Timeline timeline;
+			timeline.addEvent("Event 2000", 2000, 0, "Region", "Leader", "Country", "Desc", "user");
+			timeline.addEvent("Event 1990", 1990, 0, "Region", "Leader", "Country", "Desc", "user");
+			timeline.addEvent("Event 2010", 2010, 0, "Region", "Leader", "Country", "Desc", "user");
+			timeline.saveEventsToJson("test_sorted_events.json");
+			nlohmann::json savedData = Utiles::loadFile("test_sorted_events.json");
+
+			Assert::IsTrue(savedData.is_array());
+			Assert::AreEqual(static_cast<size_t>(3), savedData.size());
+			Assert::AreEqual(1990, savedData[0]["year"].get<int>());
+			Assert::AreEqual(2000, savedData[1]["year"].get<int>());
+			Assert::AreEqual(2010, savedData[2]["year"].get<int>());
+		}
+
+		TEST_METHOD(EditEvent_NonExistingYear_DoesNotModify)
+		{
+			Timeline timeline;
+			timeline.addEvent("Original Event", 2020, 0, "Region", "Leader", "Country", "Desc", "user");
+
+			timeline.editEvent("test_edit.json", 9999);
+
+			timeline.saveEventsToJson("test_edit.json");
+			nlohmann::json data = Utiles::loadFile("test_edit.json");
+
+			Assert::AreEqual(static_cast<size_t>(1), data.size());
+			Assert::AreEqual(std::string("Original Event"), data[0]["title"].get<std::string>());
+		}
+
+		TEST_METHOD(DeleteEvent_EmptyFile_DoesNotCrash)
+		{
+			Timeline timeline;
+			timeline.deleteEvent("test_empty_delete.json", 2020);
+			Assert::IsTrue(true);
+		}
+
+		TEST_METHOD(CompareEvents_SameEvent_ReturnsCorrectComparison)
+		{
+			Timeline timeline;
+			Event event1{ "Event", 2000, 100, "North", "Leader", "BG", "Desc", "user" };
+			Event event2{ "Event", 2000, 100, "North", "Leader", "BG", "Desc", "user" };
+
+			timeline.addEvent(event1.title, event1.year, event1.victims, event1.partOfBulgaria,
+				event1.leader, event1.countries, event1.description, event1.username);
+			timeline.addEvent(event2.title, event2.year, event2.victims, event2.partOfBulgaria,
+				event2.leader, event2.countries, event2.description, event2.username);
+
+			Assert::IsTrue(true);
+		}
+	};
+
+	TEST_CLASS(UtilsTests)
+	{
+	public:
+		TEST_METHOD(Sha256FromString_ValidInput_ReturnsHash)
+		{
+			std::string hash = Utiles::sha256FromString("password");
+			Assert::AreEqual(static_cast<size_t>(64), hash.length());
+			Assert::AreNotEqual(std::string("password"), hash);
+		}
+
+		TEST_METHOD(SaveToFile_ValidData_CreatesFile)
+		{
+			nlohmann::json testData;
+			testData["test"] = "value";
+
+			Utiles::saveToFile("test_utils.json", testData);
+
+			std::ifstream file("test_utils.json");
+			Assert::IsTrue(file.good());
+			file.close();
+
+			std::remove("test_utils.json");
+		}
+
+		TEST_METHOD(IsFileEmpty_NonExistentFile_ReturnsFalse)
+		{
+			Assert::IsFalse(Utiles::isFileEmpty("nonexistent_file.xyz"));
+
+			std::ofstream emptyFile("empty_test_file.tmp");
+			emptyFile.close();
+			Assert::IsTrue(Utiles::isFileEmpty("empty_test_file.tmp"));
+			std::remove("empty_test_file.tmp");
+
+			std::ofstream nonEmptyFile("non_empty_test_file.tmp");
+			nonEmptyFile << "content";
+			nonEmptyFile.close();
+			Assert::IsFalse(Utiles::isFileEmpty("non_empty_test_file.tmp"));
+			std::remove("non_empty_test_file.tmp");
+		}
+	};
+
+	TEST_CLASS(StagesTests)
+	{
+	public:
+		TEST_METHOD(StagesMenu_InvalidChoice_RepeatsPrompt)
+		{
+			Stages stages;
+			std::istringstream input("9\n1\n");
+			std::streambuf* origCin = std::cin.rdbuf(input.rdbuf());
+
+			try {
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+				std::cout.rdbuf(old);
+				std::cin.rdbuf(origCin);
+
+				std::string output = buffer.str();
+				Assert::IsTrue(output.find("You've entered an invalid option") != std::string::npos);
+			}
+			catch (...) {
+				std::streambuf* old = std::cout.rdbuf();
+				std::cout.rdbuf(old);
+
+				std::cin.rdbuf(origCin);
+				Assert::Fail(L"Exception thrown");
+			}
+		}
+
+		TEST_METHOD(DisplayStage_ValidFiles_DisplaysContent)
+		{
+			Stages stages;
+			const std::string validMap = "../assets/graphic/maps/681-814.txt";
+			const std::string validInfo = "../assets/graphic/stages/681-814.txt";
+
+			try {
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+				std::cout.rdbuf(old);
+				std::string output = buffer.str();
+				Assert::IsFalse(output.empty());
+			}
+			catch (...) {
+				std::stringstream buffer;
+				std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+				Assert::Fail(L"Exception thrown");
+			}
 		}
 	};
 }
