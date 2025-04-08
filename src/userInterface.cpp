@@ -2,8 +2,6 @@
 
 Ui::Ui()
 {
-    std::thread escThread(Ui::listenForEscape, std::ref(*this));
-    escThread.detach();
     this->user = new User;
     startScreen();
 }
@@ -27,26 +25,16 @@ void Ui::startScreen()
 
 void Ui::displeyMenuMsg(std::string msg)
 {
-    system("cls");
+    //system("cls");
     Utiles::displayFile("../assets/graphic/header.txt");
     std::cout << msg << std::endl;
 }
 
-void Ui::listenForEscape(Ui& ui) {
-    while (true) {
-        if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
-            ui.mainMenu();
-        }
-    }
-}
-
 void Ui::mainMenu() {
     //Clear console
-    system("cls");
+    //system("cls");
     Utiles::displayFile("../assets/graphic/header.txt");
 
-
-    //Loop until valid choice
     while (true) {
 
         int choice;
@@ -56,11 +44,11 @@ void Ui::mainMenu() {
             switch (choice) {
             case 1:
                 registerUi();
-                displeyMenuMsg("Registration successful" + user->getUserName());
+                displeyMenuMsg("Registration successful " + user->getUserName());
                 break;
             case 2:
                 logInUi();
-                displeyMenuMsg("Welcome back" + user->getUserName());
+                displeyMenuMsg("Welcome back " + user->getUserName());
                 break;
             case 4:
                 timeLineUi();
@@ -227,46 +215,113 @@ void Ui::logInUi() {
 
 void Ui::timeLineUi() 
 {
-    char choice;
-    if (!user->isUserEmpty())
-    {
-        const char fileName[] = "../assets/events.json";
-        Timeline line;
-        line.loadDefaultEvents();
-        line.loadEventsFromJson(fileName);
-        line.displayEvents();
+    const char fileName[] = "../assets/events.json";
+    Timeline line;
 
-        std::cout << "Would you like to compare some of these events?" << std::endl;
-        std::cout << "Yes[Y]" << std::endl;
-        std::cout << "No[N]" << std::endl;
-        std::cout << "Main menu[M]" << std::endl;
-
-        while (true) {
-            std::cout << "Choice: ";
-            std::cin.ignore();
-            std::cin >> choice;
-
-            switch (choice) {
-            case'Y':
-            case'y':
-                line.chooseEventsToCompare(*this);
-                break;
-            case 'N':
-            case 'n':
-                break;
-            case'M':
-            case'm':
-                mainMenu();
-                break;
-            default:
-                std::cout << "You've entered an invalid option. Please try again." << std::endl;
-                break;
-            }
-        }
-    }
-    else
+    if (user->isUserEmpty())
     {
         std::cout << "Must login or register\n";
         return;
+    }
+
+    if (user->getIsAdmin())
+    {
+        adminTimeLine(fileName, line);
+    }
+
+    char choice;
+    line.loadDefaultEvents();
+    line.loadEventsFromJson(fileName);
+    line.displayEvents();
+
+    std::cout << "Would you like to compare some of these events?" << std::endl;
+    std::cout << "Yes[Y]" << std::endl;
+    std::cout << "No[N]" << std::endl;
+    std::cout << "Main menu[M]" << std::endl;
+
+    while (true) {
+        std::cout << "Choice: ";
+        std::cin.ignore();
+        std::cin >> choice;
+
+        switch (choice) {
+        case'Y':
+        case'y':
+            line.chooseEventsToCompare(*this);
+            break;
+        case 'N':
+        case 'n':
+            break;
+        case'M':
+        case'm':
+            mainMenu();
+            break;
+        default:
+            std::cout << "You've entered an invalid option. Please try again." << std::endl;
+            break;
+        }
+    }
+}
+
+void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
+{
+    std::string name =  user->getUserName();
+    std::string title;
+    int year;
+    int victims;
+    std::string partOfBulgaria;
+    std::string leader;
+    std::string countries;
+    std::string description;
+
+    std::cout << "Welcome back admin:" + user->getUserName() << std::endl;
+    std::cout << "[1]: Add new event" << std::endl;
+    std::cout << "[2]: Edit an existing event:" << std::endl;
+    std::cout << "Press N to go back" << std::endl;
+
+    char choice;
+    while (true) {
+        std::cout << "Choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+        case '1':
+            std::cout << "title";
+            std::getline(std::cin, title);
+
+            std::cout << "\nyear";
+            std::cin >> year;
+
+            std::cout << "\nvictims";
+            std::cin >> victims;
+
+            std::cout << "\npart of Bulgaria";
+            std::getline(std::cin, partOfBulgaria);
+
+            std::cout << "\ncountries";
+            std::getline(std::cin, countries);
+
+            std::cout << "\nleader";
+            std::getline(std::cin, leader);
+
+            std::cout << "\ndescription";
+            std::getline(std::cin, description);
+
+            line.addEvent(title, year, victims, partOfBulgaria,  leader, countries, description, name);
+            line.saveEventsToJson(fileName);
+            break;
+        case '2':
+            std::cout << "\nyear";
+            std::cin >> year;
+            line.editEvent(fileName, year);
+            line.saveEventsToJson(fileName);
+            break;
+        case'n':
+        case'N':
+            return;
+        default:
+            std::cout << "You've entered an invalid option. Please try again." << std::endl;
+            break;
+        }
     }
 }

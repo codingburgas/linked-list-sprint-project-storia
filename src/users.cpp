@@ -73,24 +73,36 @@ nlohmann::json User::saveAsJson() {
 	return data;
 }
 
-bool User::loadFromFile(const string& fileName, const string& emailToFind)
+bool User::loadFromFile(const string& fileName, const string& emailToFind) 
 {
 	nlohmann::json data;
 	if (!Utiles::isFileEmpty(fileName)) {
 		data = Utiles::loadFile(fileName);
 	}
 
+	if (!data.is_array()) {
+		std::cerr << "Invalid user data format" << std::endl;
+		return false;
+	}
+
 	for (const auto& item : data) {
-		if (item["email"] == emailToFind) {
-			this->id = item["id"];
-			this->email = item["email"];
-			this->userName = item["userName"];
-			this->password = item["password"];
+		if (!item.contains("email") || !item["email"].is_string()) {
+			continue;
+		}
+
+		std::string storedEmail = item.value("email", "");
+		if (storedEmail == emailToFind ||
+			Utiles::sha256FromString(emailToFind) == storedEmail) {
+
+			this->id = item.value("id", 0);
+			this->email = storedEmail;
+			this->userName = item.value("userName", "");
+			this->password = item.value("password", "");
+			this->isAdmin = item.value("isAdmin", false);
 			return true;
 		}
 	}
-	std::cerr << "User not found: ";
-	return false;
+
 }
 
 void User::displayUser()
@@ -99,6 +111,7 @@ void User::displayUser()
 	cout << "Email: " << this->email << "\n";
 	cout << "Username: " << this->userName << "\n";
 	cout << "Password: " << this->password << "\n";
+	cout << "isAdmin: " << this->isAdmin << "\n";
 }
 
 void User::eraseUser() {
