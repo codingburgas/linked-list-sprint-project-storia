@@ -2,6 +2,8 @@
 
 Ui::Ui()
 {
+    std::thread escThread(Ui::listenForEscape, std::ref(*this));
+    escThread.detach();
     this->user = new User;
     startScreen();
 }
@@ -23,44 +25,59 @@ void Ui::startScreen()
     Utiles::resetColor();
 }
 
-void Ui::mainMenu() {
+void Ui::displeyMenuMsg(std::string msg)
+{
+    system("cls");
+    Utiles::displayFile("../assets/graphic/header.txt");
+    std::cout << msg << std::endl;
+}
 
+void Ui::listenForEscape(Ui& ui) {
+    while (true) {
+        if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+            ui.mainMenu();
+        }
+    }
+}
+
+void Ui::mainMenu() {
     //Clear console
     system("cls");
     Utiles::displayFile("../assets/graphic/header.txt");
 
-    char choice;
 
     //Loop until valid choice
     while (true) {
+
+        int choice;
         std::cout << "Choice: ";
         std::cin >> choice;
 
             switch (choice) {
-            case'1':
+            case 1:
                 registerUi();
-                std::cout << "Registration successful\n";
+                displeyMenuMsg("Registration successful" + user->getUserName());
                 break;
-            case'2':
+            case 2:
                 logInUi();
-                std::cout << "Welcome back\n";
+                displeyMenuMsg("Welcome back" + user->getUserName());
                 break;
-            case'4':
+            case 4:
                 timeLineUi();
                 break;
-            case '3':
+            case 3:
                 Stages::stagesMenu(*this);
                 Utiles::resetColor();
                 break;
-            case '5':
+            case 5:
+                displeyMenuMsg("You've loged out from: " + user->getUserName());
                 user->eraseUser();
-                std::cout << "You log out";
                 break;
-            case '6':
-                std::cout << "See you next time";
+            case 6:
+                std::cout << "See you next time " << user->getUserName();
                 return;
             default:
-                std::cout << "You've entered an invalid option. Please try again." << std::endl;
+                displeyMenuMsg("You've entered an invalid option. Please try again.");
                 break;
             }
     }
@@ -183,7 +200,7 @@ void Ui::logInUi() {
         {
             std::cout << line;
             std::cin >> email;
-            
+
             while (!user->loadFromFile(fileToSave, Utiles::sha256FromString(email))) {
                 std::cin >> email;
             }

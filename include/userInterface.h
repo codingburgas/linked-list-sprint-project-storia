@@ -9,8 +9,10 @@ public:
 
 	void mainMenu();
 	void timeLineUi();
+	static void listenForEscape(Ui& ui);
 private:
 	void startScreen();
+	void displeyMenuMsg(std::string msg);
 
 	void registerUi();
 	void registerAsAdmin();

@@ -12,6 +12,10 @@
 			  This implementation uses little endian byte order.
 *********************************************************************/
 
+/**************************** DATA TYPES ****************************/
+typedef unsigned char unsigned BYTE;             // 8-bit unsigned char
+typedef unsigned int  unsigned WORD;             // 32-bit unsigned int, change to "long" for 16-bit machines
+
 /*************************** HEADER FILES ***************************/
 #include <stdlib.h>
 #include <memory.h>

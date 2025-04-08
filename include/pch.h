@@ -9,6 +9,9 @@
 #include <sstream>
 #include <vector>
 #include <regex>
+#include <thread>
+#include <atomic>
+#include <Windows.h>
 
 #include <crypto.h>
 #include <nlohmann/json.hpp>
