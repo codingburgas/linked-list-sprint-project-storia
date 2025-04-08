@@ -1,8 +1,8 @@
 #pragma once
 
+
 #include <nlohmann/json.hpp>
 #include <string>
-
 class User
 {
 public:

@@ -1,0 +1,33 @@
+﻿  main.cpp
+  admin.cpp
+  setColor.cpp
+  stagesPage.cpp
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(35,21): warning C4551: function call missing argument list
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(40,21): warning C4551: function call missing argument list
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(45,21): warning C4551: function call missing argument list
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(50,21): warning C4551: function call missing argument list
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(10,14): error C2129: static function 'void Utiles::displayFile(const std::string &)' declared but not defined
+  (compiling source file '../src/stagesPage.cpp')
+      C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(10,14):
+      see declaration of 'Utiles::displayFile'
+  
+  timeLine.cpp
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(15,14): error C2129: static function 'bool Utiles::isFileEmpty(const std::string &)' declared but not defined
+  (compiling source file '../src/timeLine.cpp')
+      C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(15,14):
+      see declaration of 'Utiles::isFileEmpty'
+  
+  userInterface.cpp
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(6,14): error C2129: static function 'void Utiles::SetColor(int)' declared but not defined
+  (compiling source file '../src/userInterface.cpp')
+      C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(6,14):
+      see declaration of 'Utiles::SetColor'
+  
+  users.cpp
+C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(15,14): error C2129: static function 'bool Utiles::isFileEmpty(const std::string &)' declared but not defined
+  (compiling source file '../src/users.cpp')
+      C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\include\utiles.h(15,14):
+      see declaration of 'Utiles::isFileEmpty'
+  
+  utiles.cpp
+  Generating Code...

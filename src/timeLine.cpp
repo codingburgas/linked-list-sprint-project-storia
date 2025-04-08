@@ -158,12 +158,14 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
 void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
 {
     system("cls");
-    cout << event1.title << event2.title << endl << endl;
-    cout << "Started: " << event1.year << event2.year << endl << endl;
-    cout << "Victims: " << event1.victims << event2.victims << endl << endl;
-    cout << "Part of Bulgaria: " << event1.partOfBulgaria << event2.partOfBulgaria << endl << endl;
-    cout << "Leader: " << event1.leader << event2.leader << endl << endl;
-    cout << "Countries it affected: " << event1.countries << event2.countries << endl << endl;
+    Utiles::displayFile("../assets/graphic/eventsComparisonHeader.txt");
+    cout << endl << endl;
+    cout << std::left << std::setw(event1.title.size() + 10) << event1.title << event2.title << endl << endl;
+    cout << "Started: " << std::left << std::setw(std::to_string(event1.year).size() + 5) << event1.year << event2.year << endl << endl;
+    cout << "Victims: " << std::left << std::setw(std::to_string(event1.victims).size() + 5) << event1.victims << event2.victims << endl << endl;
+    cout << "Part of Bulgaria: " << std::left << std::setw(event1.partOfBulgaria.size() + 5) << event1.partOfBulgaria << event2.partOfBulgaria << endl << endl;
+    cout << "Leader: " << std::left << std::setw(event1.leader.size() + 5) << event1.leader << event2.leader << endl << endl;
+    cout << "Countries it affected: " << std::left << std::setw(event1.countries.size() + 5) << event1.countries << event2.countries << endl << endl;
 
     cout << "Conclusion: " << endl;
     if (event1.year < event2.year) cout << event1.title << " happened before " << event2.title << ". ";

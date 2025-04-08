@@ -1,16 +1,17 @@
 #pragma once
 #include "pch.h"
+#include "user.h"
 
 namespace Utiles
 {
-	static void SetColor(int textColor);
-	static void resetColor();
+	 void SetColor(int textColor);
+	 void resetColor();
 
-	static nlohmann::json loadFile(const std::string& fileName);
-	static void displayFile(const std::string& fileName);
+	 nlohmann::json loadFile(const std::string& fileName);
+	 void displayFile(const std::string& fileName);
 
-	static void saveToFile(const std::string& fileName, const nlohmann::json& data);
-	static std::string sha256FromString(const std::string& input);
+	 void saveToFile(const std::string& fileName, const nlohmann::json& data);
+	 std::string sha256FromString(const std::string& input);
 
-	static bool isFileEmpty(const std::string& fileName);
+	 bool isFileEmpty(const std::string& fileName);
 };
