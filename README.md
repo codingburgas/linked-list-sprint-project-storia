@@ -62,13 +62,13 @@
   - [QA Documentation]()
 
 ### Presenting
-  - [Presentation]()
+  - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/idraykova22_codingburgas_bg/EaI02WHhRhtHlts7C_bQEx4B-lro4sRRGypcLrA62b-gIg?e=pXLeGC)
 
 # 👥 Team
 
 | Name | Role | Grade |
 | :---:   | :---: | :---: |
-|  <h3><a href = "https://github.com/DYkartalova22">Iva Raykova</a></h3> | Scrum Trainer | 10G |
+|  <h3><a href = "https://github.com/IDRaykova22">Iva Raykova</a></h3> | Scrum Trainer | 10G |
 | <h3><a href = "https://github.com/ATKabakov22">Anton Kabakov</a></h3> | Backend Developer | 10V |
 | <h3><a href = "https://github.com/SNRadev22">Stanislav Radev</a></h3> |  Frontend Developer  | 10G |
 | <h3><a href = "https://github.com/RVParvanov22">Rumen Parvanov</a></h3> |  Q&A  | 10V |
