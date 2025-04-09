@@ -1,9 +1,1 @@
-﻿  crypto.cpp
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(138,22): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(139,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(140,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(141,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(142,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(143,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\lib\crypto\crypto.cpp(144,31): warning C4244: '=': conversion from 'unsigned __int64' to 'BYTE', possible loss of data
-  crypto.vcxproj -> C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\bin\Debug\crypto.lib
+﻿  crypto.vcxproj -> E:\Mariq\linked-list-sprint-project-storia\bin\Debug\crypto.lib

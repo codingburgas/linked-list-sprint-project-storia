@@ -25,14 +25,16 @@ void Ui::startScreen()
 
 void Ui::displeyMenuMsg(std::string msg)
 {
-    //system("cls");
+    //Clear console
+    system("cls");
+
     Utiles::displayFile("../assets/graphic/header.txt");
     std::cout << msg << std::endl;
 }
 
 void Ui::mainMenu() {
     //Clear console
-    //system("cls");
+    system("cls");
     Utiles::displayFile("../assets/graphic/header.txt");
 
     while (true) {
@@ -44,11 +46,11 @@ void Ui::mainMenu() {
             switch (choice) {
             case 1:
                 registerUi();
-                displeyMenuMsg("Registration successful " + user->getUserName());
+                displeyMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
                 break;
             case 2:
                 logInUi();
-                displeyMenuMsg("Welcome back " + user->getUserName());
+                displeyMenuMsg("Welcome back, " + user->getUserName());
                 break;
             case 4:
                 timeLineUi();
@@ -75,14 +77,15 @@ void Ui::registerUi() {
     const char fileName[] = "../assets/graphic/register.txt";
     const char fileToSave[] = "../assets/users.json";
 
-    std::string line;
-    std::string password;
-    std::string confurmPassword;
+    std::string line, password, confirmPassword;
+
+    //Clear console
+    system("cls");
 
     std::ifstream file(fileName);
 
     if (!file.is_open() || Utiles::isFileEmpty(fileName)) {
-        std::cerr << "Could not open file for reading!" << std::endl;
+        std::cout << "Could not open file for reading!" << std::endl;
         return;
     }
 
@@ -118,10 +121,10 @@ void Ui::registerUi() {
         else if (line.find("Confirm Password") != std::string::npos)
         {
             std::cout << line;
-            std::cin >> confurmPassword;
-            while (password != confurmPassword) {
+            std::cin >> confirmPassword;
+            while (password != confirmPassword) {
                 std::cout << "     Wrong password try again";
-                std::cin >> confurmPassword;
+                std::cin >> confirmPassword;
             }
         }
         else if (line.find("Registering as Admin? ") != std::string::npos)
@@ -267,12 +270,8 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
 {
     std::string name =  user->getUserName();
     std::string title;
-    int year;
-    int victims;
-    std::string partOfBulgaria;
-    std::string leader;
-    std::string countries;
-    std::string description;
+    int year, victims;
+    std::string partOfBulgaria, leader, countries, description;
 
     std::cout << "Welcome back admin:" + user->getUserName() << std::endl;
     std::cout << "[1]: Add new event" << std::endl;

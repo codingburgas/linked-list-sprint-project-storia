@@ -99,8 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\src\admin.cpp" />
-    <ClCompile Include="..\src\setColor.cpp" />
     <ClCompile Include="..\src\stagesPage.cpp" />
     <ClCompile Include="..\src\timeLine.cpp" />
     <ClCompile Include="..\src\userInterface.cpp" />
@@ -109,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\assets\events.json" />
+    <None Include="..\assets\graphic\eventsComparisonHeader.txt" />
     <None Include="..\assets\graphic\header.txt" />
     <None Include="..\assets\graphic\logIn.txt" />
     <None Include="..\assets\graphic\maps\1019-1206.txt" />

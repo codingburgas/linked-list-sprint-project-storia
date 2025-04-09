@@ -48,12 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\src\admin.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\setColor.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\stagesPage.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -73,6 +67,9 @@
   <ItemGroup>
     <None Include="..\assets\events.json">
       <Filter>assets</Filter>
+    </None>
+    <None Include="..\assets\graphic\eventsComparisonHeader.txt">
+      <Filter>assets\graphic</Filter>
     </None>
     <None Include="..\assets\graphic\header.txt">
       <Filter>assets\graphic</Filter>

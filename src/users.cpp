@@ -1,7 +1,6 @@
 #include "pch.h"
 
 using std::string;
-using std::cout;
 
 User::User() {
 	this->isAdmin = false;
@@ -16,13 +15,13 @@ bool User::checkEmail(const string& email, const string& fileName)
 
 	for (const auto& item : data) {
 		if (item["email"] == email) {
-			cout << "     Email already exists: "  ;
+			std::cout << "             ERROR: Email already exists.\n             Enter Email: "  ;
 			return false;
 		}
 	}
 	std::regex email_regex(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
 	if (!std::regex_match(email, email_regex)) {
-		cout << "     Invalid email: ";
+		std::cout << "             ERROR: Invalid email.\n             Enter Email: ";
 		return false;
 	}
 
@@ -34,7 +33,7 @@ bool User::checkEmail(const string& email, const string& fileName)
 		return true;
 	}
 	else {
-		cout << "     Invalid email domain: ";
+		std::cout << "             ERROR: Invalid email domain.\n             Enter Email: ";
 		return false;
 	}
 }
@@ -45,7 +44,7 @@ bool User::checkPassword(const string& password)
 
 	if (password.size() < 6)
 	{
-		cout << "     Password must be at least 6 characters long: ";
+		std::cout << "             ERROR: Password must be at least 6 characters long.\n             Enter Password: ";
 		return false;
 	}
 	for (size_t i = 0; i < 10; i++)
@@ -55,7 +54,7 @@ bool User::checkPassword(const string& password)
 			return true;
 		}
 	}
-	cout << "     Password must contain at least one special character: ";
+	std::cout << "             ERROR: Password must contain at least one special character.\n             Enter Password: ";
 	return false;
 }
 
@@ -107,11 +106,11 @@ bool User::loadFromFile(const string& fileName, const string& emailToFind)
 
 void User::displayUser()
 {
-	cout << "id: " << this->id << "\n";
-	cout << "Email: " << this->email << "\n";
-	cout << "Username: " << this->userName << "\n";
-	cout << "Password: " << this->password << "\n";
-	cout << "isAdmin: " << this->isAdmin << "\n";
+	std::cout << "id: " << this->id << "\n";
+	std::cout << "Email: " << this->email << "\n";
+	std::cout << "Username: " << this->userName << "\n";
+	std::cout << "Password: " << this->password << "\n";
+	std::cout << "isAdmin: " << this->isAdmin << "\n";
 }
 
 void User::eraseUser() {
