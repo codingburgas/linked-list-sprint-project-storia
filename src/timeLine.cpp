@@ -1,15 +1,18 @@
 ﻿#include "pch.h"
 
+//Constructor that creates empty timeline
 Timeline::Timeline() {
     head = nullptr;
 }
 
+//Add default events to timelike
 void Timeline::loadDefaultEvents() {
     addEvent("Foundation of Bulgaria", 681, 0, "Balkans", "Khan Asparuh", "Bulgaria", "Establishment of the First Bulgarian State", "Default");
     addEvent("Christianization of Bulgaria", 864, 0, "Bulgaria", "Prince Boris I", "Bulgaria", "Official adoption of Christianity", "Default");
     addEvent("Beginning of the Golden Age", 886, 0, "Bulgaria", "Clement of Ohrid", "Bulgaria", "Spread of Slavic literacy", "Default");
 }
 
+//Add new event to timeline
 void Timeline::addEvent(std::string title, int year, int victims, std::string partOfBulgaria, std::string leader, std::string countries, std::string description, std::string username)
 {
     Event* newEvent = new Event{ title, year, victims, partOfBulgaria, leader, countries, description, username, nullptr };
@@ -28,6 +31,7 @@ void Timeline::addEvent(std::string title, int year, int victims, std::string pa
     }
 }
 
+//Edit an event
 void Timeline::editEvent(const std::string& fileName, int year) {
     Event* current = head;
     while (current && current->year != year) {
@@ -48,6 +52,7 @@ void Timeline::editEvent(const std::string& fileName, int year) {
     std::cout << "Description: "; std::getline(std::cin, current->description);
 }
 
+//Saves the events to JSON format
 void Timeline::saveEventsToJson(const std::string& fileName)
 {
     Event* current = this->head;
@@ -76,13 +81,13 @@ void Timeline::saveEventsToJson(const std::string& fileName)
     if (outFile.is_open()) {
         outFile << existingData.dump(4);
         outFile.close();
-        //std::std::cout << "Data saved to " << fileName << std::endl;
     }
     else {
-        std::cerr << "Could not open file for writing!" << std::endl;
+        std::cout << "Could not open file for writing!" << std::endl;
     }
 }
 
+//Loads data from JSON format
 void Timeline::loadEventsFromJson(const std::string& fileName)
 {
     nlohmann::json data;
@@ -104,6 +109,7 @@ void Timeline::loadEventsFromJson(const std::string& fileName)
     }
 }
 
+//Display the header for events
 void Timeline::displayEvents() {
     system("cls");
     Utiles::displayFile("../assets/graphic/timelineHeader.txt");
@@ -116,6 +122,7 @@ void Timeline::displayEvents() {
     }
 }
 
+//Displays events
 void Timeline::displayEvent() {
 
     std::string title;
@@ -140,6 +147,7 @@ void Timeline::displayEvent() {
     }
 }
 
+//Delete event from timeline
 void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
     Event* current = this->head;
     Event* prev = nullptr;
@@ -147,15 +155,16 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
     while (current != nullptr) {
         if (current->year == yearToDelete) {
             if (prev == nullptr) {
-                // Deleting head
+                // Delete head
                 this->head = current->next;
             }
             else {
                 prev->next = current->next;
             }
 
+            // Delete only first matching event
             delete current;
-            break; // Delete only first matching event
+            break; 
         }
 
         prev = current;
@@ -191,10 +200,12 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
     }
 }
 
+//Compare two events
 void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
 {
     system("cls");
     Utiles::displayFile("../assets/graphic/eventsComparisonHeader.txt");
+
     std::cout << std::endl << std::endl;
     std::cout << std::left << std::setw(event1.title.size() + 10) << event1.title << event2.title << std::endl << std::endl;
     std::cout << "Started: " << std::left << std::setw(std::to_string(event1.year).size() + 5) << event1.year << event2.year << std::endl << std::endl;
@@ -204,6 +215,7 @@ void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
     std::cout << "Countries it affected: " << std::left << std::setw(event1.countries.size() + 5) << event1.countries << event2.countries << std::endl << std::endl;
 
     std::cout << "Conclusion: " << std::endl;
+
     if (event1.year < event2.year) std::cout << event1.title << " happened before " << event2.title << ". ";
     else if (event1.year > event2.year) std::cout << event1.title << " happened after " << event2.title << ". ";
     else std::cout << "Both events started in " << event1.year << ". ";
@@ -222,9 +234,9 @@ void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
     else std::cout << "Both events affected " << event1.countries << std::endl << std::endl;
 
     std::cout << "Where to next?" << std::endl;
-    std::cout << "Timeline[T]" << std::endl;
-    std::cout << "Stay[S]" << std::endl;
-    std::cout << "Main menu[M]" << std::endl;
+    std::cout << "[T] Timeline" << std::endl;
+    std::cout << "[S] Stay" << std::endl;
+    std::cout << "[M] Main Menu" << std::endl;
 
     char choice;
     while (true) {
@@ -251,6 +263,7 @@ void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
     }
 }
 
+//Choose from events in timeline to compare
 void Timeline::chooseEventsToCompare(Ui& ui)
 {
     bool event1Found = false;

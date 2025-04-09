@@ -2,16 +2,19 @@
 
 namespace Utiles
 {
+	//Set color to text
 	void SetColor(int textColor)
 	{
 		std::cout << "\033[" << textColor << "m";
 	}
 
+	//Reset color to default
 	void resetColor()
 	{
 		std::cout << "\033[0m";
 	}
 
+	//Returns data from JSON file 
 	nlohmann::json loadFile(const std::string& fileName)
 	{
 		nlohmann::json dataToSave;
@@ -28,6 +31,7 @@ namespace Utiles
 		return dataToSave;
 	}
 
+	//Displays the contents of a txt file
 	void displayFile(const std::string& fileName) {
 		std::ifstream file(fileName);
 
@@ -40,7 +44,7 @@ namespace Utiles
 		}
 	}
 
-
+	//Saves data to JSON file
 	void saveToFile(const std::string& fileName, const nlohmann::json& data) {
 		nlohmann::json existingData;
 		nlohmann::json inData = data;
@@ -60,13 +64,13 @@ namespace Utiles
 		if (outFile.is_open()) {
 			outFile << existingData.dump(4);
 			outFile.close();
-			//std::cout << "Data saved to " << fileName << std::endl;
 		}
 		else {
 			std::cerr << "Could not open file for writing!" << std::endl;
 		}
 	}
 
+	//Checks if the given file can open
 	bool isFileEmpty(const std::string& fileName) {
 		std::ifstream file(fileName);
 
@@ -82,6 +86,7 @@ namespace Utiles
 		return fileSize == 0;
 	}
 
+	//Returns hash of a given string
 	std::string sha256FromString(const std::string& input) {
 		BYTE hash[32];
 		SHA256_CTX ctx;

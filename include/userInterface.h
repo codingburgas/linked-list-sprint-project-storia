@@ -13,7 +13,7 @@ public:
 	void timeLineUi();
 private:
 	void startScreen();
-	void displeyMenuMsg(std::string msg);
+	void displayMenuMsg(std::string msg);
 
 	void registerUi();
 	void registerAsAdmin();

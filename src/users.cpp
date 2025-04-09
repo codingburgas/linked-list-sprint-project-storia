@@ -1,9 +1,11 @@
 #include "pch.h"
 
+//Constructor that sets isAdmin to false by default
 User::User() {
 	this->isAdmin = false;
 }
 
+//Check if the entered email corresponds to every requirement
 bool User::checkEmail(const std::string& email, const std::string& fileName)
 {
 	nlohmann::json data;
@@ -11,12 +13,15 @@ bool User::checkEmail(const std::string& email, const std::string& fileName)
 		data = Utiles::loadFile(fileName);
 	}
 
+	//Checks if email already exists
 	for (const auto& item : data) {
 		if (item["email"] == email) {
 			std::cout << "             ERROR: Email already exists.\n             Enter Email: ";
 			return false;
 		}
 	}
+
+	//Checks if the email meets all the requirements
 	std::regex email_regex(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
 	if (!std::regex_match(email, email_regex)) {
 		std::cout << "             ERROR: Invalid email.\n             Enter Email: ";
@@ -36,15 +41,20 @@ bool User::checkEmail(const std::string& email, const std::string& fileName)
 	}
 }
 
+//Check if the entered password corresponds to every requirement
 bool User::checkPassword(const std::string& password)
 {
+	//Required special characters
 	const char specialCharacters[10] = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
 
+	//Check if password is atleast 6 characters long
 	if (password.size() < 6)
 	{
 		std::cout << "             ERROR: Password must be at least 6 characters long.\n             Enter Password: ";
 		return false;
 	}
+
+	//Check if password has special characters
 	for (size_t i = 0; i < 10; i++)
 	{
 		if (password.find(specialCharacters[i]) != std::string::npos) {
@@ -56,6 +66,8 @@ bool User::checkPassword(const std::string& password)
 	return false;
 }
 
+
+//Save user data to JSON
 nlohmann::json User::saveAsJson() {
 	nlohmann::json data;
 	data["email"] = Utiles::sha256FromString(this->email);
@@ -65,6 +77,7 @@ nlohmann::json User::saveAsJson() {
 	return data;
 }
 
+//Loads a user's data from JSON file by matching a given email
 bool User::loadFromFile(const std::string& fileName, const std::string& emailToFind)
 {
 	nlohmann::json data;
@@ -97,6 +110,7 @@ bool User::loadFromFile(const std::string& fileName, const std::string& emailToF
 
 }
 
+//Display user information
 void User::displayUser()
 {
 	std::cout << "id: " << this->id << "\n";
@@ -106,6 +120,7 @@ void User::displayUser()
 	std::cout << "isAdmin: " << this->isAdmin << "\n";
 }
 
+//Delete user
 void User::eraseUser() {
 	this->email = "";
 	this->userName = "";

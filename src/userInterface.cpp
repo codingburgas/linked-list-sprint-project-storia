@@ -1,15 +1,18 @@
 #include "pch.h"
 
+//Constructor that initializes User object and displays startScreen function
 Ui::Ui()
 {
     this->user = new User;
     startScreen();
 }
 
+//Destructor that cleans memory 
 Ui::~Ui() {
     delete user;
 }
 
+//Displays start screen
 void Ui::startScreen()
 {
     Utiles::SetColor(32);
@@ -23,7 +26,8 @@ void Ui::startScreen()
     Utiles::resetColor();
 }
 
-void Ui::displeyMenuMsg(std::string msg)
+//Displays header.txt and given message
+void Ui::displayMenuMsg(std::string msg)
 {
     //Clear console
     system("cls");
@@ -46,11 +50,11 @@ void Ui::mainMenu() {
         switch (choice) {
         case 1:
             registerUi();
-            displeyMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
+            displayMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
             break;
         case 2:
             logInUi();
-            displeyMenuMsg("Welcome back, " + user->getUserName() + "\n");
+            displayMenuMsg("Welcome back, " + user->getUserName() + "\n");
             break;
         case 4:
             timeLineUi();
@@ -60,14 +64,14 @@ void Ui::mainMenu() {
             Utiles::resetColor();
             break;
         case 5:
-            displeyMenuMsg("You've logged out from: " + user->getUserName() + "\n");
+            displayMenuMsg("You've logged out from: " + user->getUserName() + "\n");
             user->eraseUser();
             break;
         case 6:
             std::cout << "See you next time " << user->getUserName();
             return;
         default:
-            displeyMenuMsg("You've entered an invalid option. Please try again.");
+            displayMenuMsg("You've entered an invalid option. Please try again.");
             break;
         }
     }
