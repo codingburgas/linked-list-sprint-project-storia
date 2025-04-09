@@ -112,6 +112,8 @@ void Timeline::loadEventsFromJson(const std::string& fileName)
 
 void Timeline::displayEvents() {
     system("cls");
+    Utiles::displayFile("../assets/graphic/timelineHeader.txt");
+
     Event* current = head;
     cout << "\n|\n|\n|\n";
     while (current) {
