@@ -237,10 +237,7 @@ void Ui::timeLineUi()
     line.loadEventsFromJson(fileName);
     line.displayEvents();
 
-    std::cout << "Would you like to compare some of these events?" << std::endl;
-    std::cout << "Yes[Y]" << std::endl;
-    std::cout << "No[N]" << std::endl;
-    std::cout << "Main menu[M]" << std::endl;
+    Utiles::displayFile("../assets/graphic/compareHeader.txt");
 
     while (true) {
         std::cout << "Choice: ";
