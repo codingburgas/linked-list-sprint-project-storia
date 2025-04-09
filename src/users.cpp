@@ -1,12 +1,10 @@
 #include "pch.h"
 
-using std::string;
-
 User::User() {
 	this->isAdmin = false;
 }
 
-bool User::checkEmail(const string& email, const string& fileName)
+bool User::checkEmail(const std::string& email, const std::string& fileName)
 {
 	nlohmann::json data;
 	if (!Utiles::isFileEmpty(fileName)) {
@@ -25,8 +23,8 @@ bool User::checkEmail(const string& email, const string& fileName)
 		return false;
 	}
 
-	string domain = email.substr(email.find('@') + 1);
-	string command = "nslookup -type=MX " + domain + " > nul 2>&1";
+	std::string domain = email.substr(email.find('@') + 1);
+	std::string command = "nslookup -type=MX " + domain + " > nul 2>&1";
 
 	if (std::system(command.c_str()) == 0) {
 		this->email = email;
@@ -38,7 +36,7 @@ bool User::checkEmail(const string& email, const string& fileName)
 	}
 }
 
-bool User::checkPassword(const string& password)
+bool User::checkPassword(const std::string& password)
 {
 	const char specialCharacters[10] = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
 
@@ -49,7 +47,7 @@ bool User::checkPassword(const string& password)
 	}
 	for (size_t i = 0; i < 10; i++)
 	{
-		if (password.find(specialCharacters[i]) != string::npos) {
+		if (password.find(specialCharacters[i]) != std::string::npos) {
 			this->password = password;
 			return true;
 		}
@@ -72,7 +70,7 @@ nlohmann::json User::saveAsJson() {
 	return data;
 }
 
-bool User::loadFromFile(const string& fileName, const string& emailToFind) 
+bool User::loadFromFile(const std::string& fileName, const std::string& emailToFind)
 {
 	nlohmann::json data;
 	if (!Utiles::isFileEmpty(fileName)) {
