@@ -124,9 +124,8 @@ void Timeline::displayEvents() {
 
 //Displays events
 void Timeline::displayEvent() {
-
     std::string title;
-    std::cout << "Title";
+    std::cout << "Title: ";
     std::cin.ignore();
     std::getline(std::cin, title);
 
@@ -141,6 +140,7 @@ void Timeline::displayEvent() {
             std::cout << "Leader: " << current->leader << std::endl;
             std::cout << "Countries involved: " << current->countries << std::endl;
             std::cout << "Description: " << current->description << std::endl;
+            Utiles::displayFile("../assets/graphic/compareHeader.txt");
             break;
         }
         current = current->next;
@@ -236,12 +236,11 @@ void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
     std::cout << "Where to next?" << std::endl;
     std::cout << "[T] Timeline" << std::endl;
     std::cout << "[S] Stay" << std::endl;
-    std::cout << "[M] Main Menu" << std::endl;
+    std::cout << "[M] Main Menu\n\n";
 
     char choice;
     while (true) {
         std::cout << "Choice: ";
-        std::cin.ignore();
         std::cin >> choice;
 
         switch (choice) {

@@ -19,10 +19,23 @@ void Ui::startScreen()
 
     Utiles::displayFile("../assets/graphic/startScreen.txt");
 
-    while (std::cin.get() == '\n') {
-        mainMenu();
-        break;
+    std::string choice;
+
+    while (true)
+    {
+        std::getline(std::cin, choice);
+
+        if (choice.empty())
+        {
+            mainMenu(); 
+            break; 
+        }
+        else
+        {
+            std::cout << "You've entered an invalid option. Please try again." << std::endl;
+        }
     }
+
     Utiles::resetColor();
 }
 
@@ -274,46 +287,47 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
     int year, victims;
     std::string partOfBulgaria, leader, countries, description;
 
-    std::cout << "Welcome back admin:" + user->getUserName() << std::endl;
+    std::cout << "\nWelcome back, admin:" + user->getUserName() << std::endl;
 
     char choice;
     while (true) {
         std::cout << "[1]: Add new event" << std::endl;
         std::cout << "[2]: Edit an existing event:" << std::endl;
-        std::cout << "Press N to go back" << std::endl;
-        std::cout << "Choice: ";
+        std::cout << "Press N to see the timeline" << std::endl;
+        std::cout << "\nChoice: ";
         std::cin >> choice;
         std::cin.ignore();
 
         switch (choice) {
         case '1':
-            std::cout << "Title";
+            std::cout << "Title: ";
             std::getline(std::cin, title);
 
-            std::cout << "Year";
+            std::cout << "Year: ";
             std::cin >> year;
 
-            std::cout << "Victims";
+            std::cout << "Victims: ";
             std::cin >> victims;
             std::cin.ignore();
 
-            std::cout << "Part of Bulgaria";
+            std::cout << "Part of Bulgaria: ";
             std::getline(std::cin, partOfBulgaria);
 
-            std::cout << "Countries";
+            std::cout << "Countries: ";
             std::getline(std::cin, countries);
 
-            std::cout << "Leader";
+            std::cout << "Leader: ";
             std::getline(std::cin, leader);
 
-            std::cout << "Description";
+            std::cout << "Description: ";
             std::getline(std::cin, description);
 
             line.addEvent(title, year, victims, partOfBulgaria, leader, countries, description, name);
             line.saveEventsToJson(fileName);
+            std::cout << "Event added!\n\n";
             break;
         case '2':
-            std::cout << "\nyear";
+            std::cout << "\nYear: ";
             std::cin >> year;
             line.editEvent(fileName, year);
             line.saveEventsToJson(fileName);
@@ -325,6 +339,5 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
             std::cout << "You've entered an invalid option. Please try again." << std::endl;
             break;
         }
-        system("cls");
     }
 }

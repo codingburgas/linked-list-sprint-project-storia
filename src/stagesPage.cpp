@@ -73,7 +73,6 @@ void Stages::choiceSwitch(const std::string& Leaders,Ui& ui)
 {
     char choice;
 
-    std::cout << "Choice: ";
     //Loop until valid choice
     while (true) {
         std::cin >> choice;
