@@ -1,14 +1,8 @@
 ﻿#include "pch.h"
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::ifstream;
-
 Timeline::Timeline() {
     head = nullptr;
 }
-
 
 void Timeline::loadDefaultEvents() {
     addEvent("Foundation of Bulgaria", 681, 0, "Balkans", "Khan Asparuh", "Bulgaria", "Establishment of the First Bulgarian State", "Default");
@@ -40,18 +34,18 @@ void Timeline::editEvent(const std::string& fileName, int year) {
         current = current->next;
     }
     if (!current || current->username == "Default") {
-        cout << "The event cannot be edited!\n";
+        std::cout << "The event cannot be edited!\n";
         return;
     }
-    cout << "Editing event: " << current->title << "\n";
-    cout << "New title: "; cin.ignore(); getline(cin, current->title);
-    cout << "New year: "; cin >> current->year;
-    cout << "Number of victims: "; cin >> current->victims;
-    cin.ignore();
-    cout << "Region: "; getline(cin, current->partOfBulgaria);
-    cout << "Leader: "; getline(cin, current->leader);
-    cout << "Countries involved: "; getline(cin, current->countries);
-    cout << "Description: "; getline(cin, current->description);
+    std::cout << "Editing event: " << current->title << "\n";
+    std::cout << "New title: "; std::cin.ignore(); std::getline(std::cin, current->title);
+    std::cout << "New year: "; std::cin >> current->year;
+    std::cout << "Number of victims: "; std::cin >> current->victims;
+    std::cin.ignore();
+    std::cout << "Region: "; std::getline(std::cin, current->partOfBulgaria);
+    std::cout << "Leader: "; std::getline(std::cin, current->leader);
+    std::cout << "Countries involved: "; std::getline(std::cin, current->countries);
+    std::cout << "Description: "; std::getline(std::cin, current->description);
 }
 
 void Timeline::saveEventsToJson(const std::string& fileName)
@@ -82,7 +76,7 @@ void Timeline::saveEventsToJson(const std::string& fileName)
     if (outFile.is_open()) {
         outFile << existingData.dump(4);
         outFile.close();
-        //std::cout << "Data saved to " << fileName << std::endl;
+        //std::std::cout << "Data saved to " << fileName << std::endl;
     }
     else {
         std::cerr << "Could not open file for writing!" << std::endl;
@@ -115,9 +109,9 @@ void Timeline::displayEvents() {
     Utiles::displayFile("../assets/graphic/timelineHeader.txt");
 
     Event* current = head;
-    cout << "\n|\n|\n|\n";
+    std::cout << "\n|\n|\n|\n";
     while (current) {
-        cout << " * " << current->year << " - " << current->title << "\n|\n|\n|\n|\n|\n";
+        std::cout << "[*] " << current->year << " - " << current->title << "\n|\n|\n|\n|\n|\n";
         current = current->next;
     }
 }
@@ -169,7 +163,7 @@ void Timeline::deleteEvent(const std::string& fileName, int yearToDelete) {
         std::cout << "Event deleted and file updated: " << fileName << std::endl;
     }
     else {
-        std::cerr << "Could not open file for rewriting." << std::endl;
+        std::cout << "Could not open file for rewriting." << std::endl;
     }
 }
 
@@ -177,31 +171,31 @@ void Timeline::compareEvents(Event event1, Event event2,Ui& ui)
 {
     system("cls");
     Utiles::displayFile("../assets/graphic/eventsComparisonHeader.txt");
-    cout << endl << endl;
-    cout << std::left << std::setw(event1.title.size() + 10) << event1.title << event2.title << endl << endl;
-    cout << "Started: " << std::left << std::setw(std::to_string(event1.year).size() + 5) << event1.year << event2.year << endl << endl;
-    cout << "Victims: " << std::left << std::setw(std::to_string(event1.victims).size() + 5) << event1.victims << event2.victims << endl << endl;
-    cout << "Part of Bulgaria: " << std::left << std::setw(event1.partOfBulgaria.size() + 5) << event1.partOfBulgaria << event2.partOfBulgaria << endl << endl;
-    cout << "Leader: " << std::left << std::setw(event1.leader.size() + 5) << event1.leader << event2.leader << endl << endl;
-    cout << "Countries it affected: " << std::left << std::setw(event1.countries.size() + 5) << event1.countries << event2.countries << endl << endl;
+    std::cout << std::endl << std::endl;
+    std::cout << std::left << std::setw(event1.title.size() + 10) << event1.title << event2.title << std::endl << std::endl;
+    std::cout << "Started: " << std::left << std::setw(std::to_string(event1.year).size() + 5) << event1.year << event2.year << std::endl << std::endl;
+    std::cout << "Victims: " << std::left << std::setw(std::to_string(event1.victims).size() + 5) << event1.victims << event2.victims << std::endl << std::endl;
+    std::cout << "Part of Bulgaria: " << std::left << std::setw(event1.partOfBulgaria.size() + 5) << event1.partOfBulgaria << event2.partOfBulgaria << std::endl << std::endl;
+    std::cout << "Leader: " << std::left << std::setw(event1.leader.size() + 5) << event1.leader << event2.leader << std::endl << std::endl;
+    std::cout << "Countries it affected: " << std::left << std::setw(event1.countries.size() + 5) << event1.countries << event2.countries << std::endl << std::endl;
 
-    cout << "Conclusion: " << endl;
-    if (event1.year < event2.year) cout << event1.title << " happened before " << event2.title << ". ";
-    else if (event1.year > event2.year) cout << event1.title << " happened after " << event2.title << ". ";
-    else cout << "Both events started in " << event1.year << ". ";
+    std::cout << "Conclusion: " << std::endl;
+    if (event1.year < event2.year) std::cout << event1.title << " happened before " << event2.title << ". ";
+    else if (event1.year > event2.year) std::cout << event1.title << " happened after " << event2.title << ". ";
+    else std::cout << "Both events started in " << event1.year << ". ";
 
-    if (event1.victims < event2.victims) cout << event1.title << " had less victims than " << event2.title;
-    else if (event1.year > event2.year) cout << event1.title << " had more victims than " << event2.title;
-    else cout << "Both events had " << event1.victims << " victims" << endl;
+    if (event1.victims < event2.victims) std::cout << event1.title << " had less victims than " << event2.title;
+    else if (event1.year > event2.year) std::cout << event1.title << " had more victims than " << event2.title;
+    else std::cout << "Both events had " << event1.victims << " victims" << std::endl;
 
-    if (event1.partOfBulgaria != event2.partOfBulgaria) cout << event1.title << " happened in " << event1.partOfBulgaria << " whereas " << event2.title << " happened in " << event2.partOfBulgaria << endl;
-    else cout << "Both events happened in " << event1.partOfBulgaria << ". ";
+    if (event1.partOfBulgaria != event2.partOfBulgaria) std::cout << event1.title << " happened in " << event1.partOfBulgaria << " whereas " << event2.title << " happened in " << event2.partOfBulgaria << std::endl;
+    else std::cout << "Both events happened in " << event1.partOfBulgaria << ". ";
 
-    if (event1.leader != event2.leader) cout << event1.title << " happened under the rule of " << event1.leader << " and " << event2.title << "happened under the rule of " << event2.leader << endl;
-    else cout << "Both events happened under the rule of " << event1.leader << endl;
+    if (event1.leader != event2.leader) std::cout << event1.title << " happened under the rule of " << event1.leader << " and " << event2.title << "happened under the rule of " << event2.leader << std::endl;
+    else std::cout << "Both events happened under the rule of " << event1.leader << std::endl;
 
-    if (event1.countries != event2.countries) cout << event1.title << " affected " << event1.countries << " while " << event2.title << " affected " << event2.countries << endl;
-    else cout << "Both events affected " << event1.countries << endl << endl;
+    if (event1.countries != event2.countries) std::cout << event1.title << " affected " << event1.countries << " while " << event2.title << " affected " << event2.countries << std::endl;
+    else std::cout << "Both events affected " << event1.countries << std::endl << std::endl;
 
     std::cout << "Where to next?" << std::endl;
     std::cout << "Timeline[T]" << std::endl;
@@ -240,7 +234,7 @@ void Timeline::chooseEventsToCompare(Ui& ui)
     Event event1, event2;
     std::string event1Title, event2Title;
 
-    cin.ignore();
+    std::cin.ignore();
     std::cout << "Enter title of first event to compare: ";
     std::getline(std::cin, event1Title);
     std::cout << "Enter title of second event to compare: ";
