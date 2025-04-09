@@ -152,15 +152,15 @@ void Ui::registerUi() {
 
 void Ui::registerAsAdmin()
 {
-    const char adminKey[] = "Storia22";
+    const char adminKey[] = "932bf3229ff2398c92581d3abac8ae2def2ae338ee65b68e526659dc22f7569e";
 
-    std::cout << "     Enter key: ";
+    std::cout << "             Enter key: ";
 
     std::string keyToEnter;
     std::cin >> keyToEnter;
 
-    while (keyToEnter != adminKey) {
-        std::cout << "     Wrong key: ";
+    while (Utiles::sha256FromString(keyToEnter) != adminKey) {
+        std::cout << "             Wrong key: ";
         std::cin >> keyToEnter;
     }
 
@@ -220,6 +220,7 @@ void Ui::timeLineUi()
 {
     const char fileName[] = "../assets/events.json";
     Timeline line;
+    line.loadEventsFromJson(fileName);
 
     if (user->isUserEmpty())
     {
@@ -234,26 +235,25 @@ void Ui::timeLineUi()
 
     char choice;
     line.loadDefaultEvents();
-    line.loadEventsFromJson(fileName);
     line.displayEvents();
 
     Utiles::displayFile("../assets/graphic/compareHeader.txt");
 
     while (true) {
         std::cout << "Choice: ";
-        std::cin.ignore();
         std::cin >> choice;
 
         switch (choice) {
-        case'Y':
         case'y':
+        case'Y':
             line.chooseEventsToCompare(*this);
             break;
-        case 'N':
-        case 'n':
+        case 's':
+        case 'S':
+            line.displayEvent();
             break;
-        case'M':
         case'm':
+        case'M':
             mainMenu();
             break;
         default:
@@ -271,36 +271,38 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
     std::string partOfBulgaria, leader, countries, description;
 
     std::cout << "Welcome back admin:" + user->getUserName() << std::endl;
-    std::cout << "[1]: Add new event" << std::endl;
-    std::cout << "[2]: Edit an existing event:" << std::endl;
-    std::cout << "Press N to go back" << std::endl;
 
     char choice;
     while (true) {
+        std::cout << "[1]: Add new event" << std::endl;
+        std::cout << "[2]: Edit an existing event:" << std::endl;
+        std::cout << "Press N to go back" << std::endl;
         std::cout << "Choice: ";
         std::cin >> choice;
+        std::cin.ignore();
 
         switch (choice) {
         case '1':
-            std::cout << "title";
+            std::cout << "Title";
             std::getline(std::cin, title);
 
-            std::cout << "\nyear";
+            std::cout << "Year";
             std::cin >> year;
 
-            std::cout << "\nvictims";
+            std::cout << "Victims";
             std::cin >> victims;
+            std::cin.ignore();
 
-            std::cout << "\npart of Bulgaria";
+            std::cout << "Part of Bulgaria";
             std::getline(std::cin, partOfBulgaria);
 
-            std::cout << "\ncountries";
+            std::cout << "Countries";
             std::getline(std::cin, countries);
 
-            std::cout << "\nleader";
+            std::cout << "Leader";
             std::getline(std::cin, leader);
 
-            std::cout << "\ndescription";
+            std::cout << "Description";
             std::getline(std::cin, description);
 
             line.addEvent(title, year, victims, partOfBulgaria, leader, countries, description, name);
@@ -319,5 +321,6 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
             std::cout << "You've entered an invalid option. Please try again." << std::endl;
             break;
         }
+        system("cls");
     }
 }

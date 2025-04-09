@@ -19,7 +19,7 @@ public:
 
 	bool checkEmail(const std::string& email, const std::string& fileName);
 	bool checkPassword(const std::string& password);
-	bool isUserEmpty();
+	bool isUserEmpty() { return this->email.size() == 0; }
 
 	nlohmann::json saveAsJson();
 	bool loadFromFile(const std::string& fileName, const std::string& emailToFind);

@@ -56,11 +56,6 @@ bool User::checkPassword(const std::string& password)
 	return false;
 }
 
-bool User::isUserEmpty()
-{
-	return this->email.size() == 0;
-}
-
 nlohmann::json User::saveAsJson() {
 	nlohmann::json data;
 	data["email"] = Utiles::sha256FromString(this->email);

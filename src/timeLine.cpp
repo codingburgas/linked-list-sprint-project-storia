@@ -111,7 +111,31 @@ void Timeline::displayEvents() {
     Event* current = head;
     std::cout << "\n|\n|\n|\n";
     while (current) {
-        std::cout << "[*] " << current->year << " - " << current->title << "\n|\n|\n|\n|\n|\n";
+        std::cout << "[*] " << current->year << " - " << current->title << "\n|\n|\n";
+        current = current->next;
+    }
+}
+
+void Timeline::displayEvent() {
+
+    std::string title;
+    std::cout << "Title";
+    std::cin.ignore();
+    std::getline(std::cin, title);
+
+
+    Event* current = head;
+    while (current) {
+        if (current->title == title)
+        {
+            std::cout << "Title: " << current->title << std::endl;
+            std::cout << "Year: " << current->year << std::endl;
+            std::cout << "Number of victims: " << current->victims << std::endl;
+            std::cout << "Leader: " << current->leader << std::endl;
+            std::cout << "Countries involved: " << current->countries << std::endl;
+            std::cout << "Description: " << current->description << std::endl;
+            break;
+        }
         current = current->next;
     }
 }
