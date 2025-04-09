@@ -43,33 +43,33 @@ void Ui::mainMenu() {
         std::cout << "Choice: ";
         std::cin >> choice;
 
-            switch (choice) {
-            case 1:
-                registerUi();
-                displeyMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
-                break;
-            case 2:
-                logInUi();
-                displeyMenuMsg("Welcome back, " + user->getUserName());
-                break;
-            case 4:
-                timeLineUi();
-                break;
-            case 3:
-                Stages::stagesMenu(*this);
-                Utiles::resetColor();
-                break;
-            case 5:
-                displeyMenuMsg("You've loged out from: " + user->getUserName());
-                user->eraseUser();
-                break;
-            case 6:
-                std::cout << "See you next time " << user->getUserName();
-                return;
-            default:
-                displeyMenuMsg("You've entered an invalid option. Please try again.");
-                break;
-            }
+        switch (choice) {
+        case 1:
+            registerUi();
+            displeyMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
+            break;
+        case 2:
+            logInUi();
+            displeyMenuMsg("Welcome back, " + user->getUserName() + "\n");
+            break;
+        case 4:
+            timeLineUi();
+            break;
+        case 3:
+            Stages::stagesMenu(*this);
+            Utiles::resetColor();
+            break;
+        case 5:
+            displeyMenuMsg("You've logged out from: " + user->getUserName() + "\n");
+            user->eraseUser();
+            break;
+        case 6:
+            std::cout << "See you next time " << user->getUserName();
+            return;
+        default:
+            displeyMenuMsg("You've entered an invalid option. Please try again.");
+            break;
+        }
     }
 }
 
@@ -91,7 +91,7 @@ void Ui::registerUi() {
 
     while (std::getline(file, line)) {
 
-        if (line.find("Email") != std::string::npos) 
+        if (line.find("Email") != std::string::npos)
         {
             std::cout << line;
 
@@ -101,7 +101,7 @@ void Ui::registerUi() {
                 std::cin >> email;
             }
         }
-        else if (line.find("Username") != std::string::npos) 
+        else if (line.find("Username") != std::string::npos)
         {
             std::cout << line;
 
@@ -138,11 +138,11 @@ void Ui::registerUi() {
                 registerAsAdmin();
             }
         }
-        else 
+        else
         {
             std::cout << line << std::endl;
         }
-        
+
     }
 
     Utiles::saveToFile(fileToSave, user->saveAsJson());
@@ -169,22 +169,22 @@ void Ui::registerAsAdmin()
 
 void Ui::logInUi() {
 
-
     const char fileName[] = "../assets/graphic/login.txt";
     const char fileToSave[] = "../assets/users.json";
 
-    std::string line;
-    std::string email;
-    std::string password;
+    //Clear console
+    system("cls");
+
+    std::string line, email, password;
 
     std::ifstream file(fileName);
 
     if (!file.is_open() || Utiles::isFileEmpty(fileName)) {
-        std::cerr << "Could not open file for reading!" << std::endl;
+        std::cout << "Could not open file for reading!" << std::endl;
         return;
     }
 
-    while (std::getline(file, line)) 
+    while (std::getline(file, line))
     {
 
         if (line.find("Email") != std::string::npos)
@@ -202,7 +202,7 @@ void Ui::logInUi() {
 
             std::cin >> password;
             while (user->getPassword() != Utiles::sha256FromString(password)) {
-                std::cout << "Wrong password\n";
+                std::cout << "Wrong password\nPassword: ";
                 std::cin >> password;
             }
         }
@@ -216,7 +216,7 @@ void Ui::logInUi() {
     file.close();
 }
 
-void Ui::timeLineUi() 
+void Ui::timeLineUi()
 {
     const char fileName[] = "../assets/events.json";
     Timeline line;
@@ -268,7 +268,7 @@ void Ui::timeLineUi()
 
 void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
 {
-    std::string name =  user->getUserName();
+    std::string name = user->getUserName();
     std::string title;
     int year, victims;
     std::string partOfBulgaria, leader, countries, description;
@@ -306,7 +306,7 @@ void Ui::adminTimeLine(const std::string& fileName, Timeline& line)
             std::cout << "\ndescription";
             std::getline(std::cin, description);
 
-            line.addEvent(title, year, victims, partOfBulgaria,  leader, countries, description, name);
+            line.addEvent(title, year, victims, partOfBulgaria, leader, countries, description, name);
             line.saveEventsToJson(fileName);
             break;
         case '2':

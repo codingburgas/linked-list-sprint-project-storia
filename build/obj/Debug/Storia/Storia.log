@@ -1,15 +1,13 @@
 ﻿  main.cpp
   stagesPage.cpp
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(35,21): warning C4551: function call missing argument list
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(40,21): warning C4551: function call missing argument list
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(45,21): warning C4551: function call missing argument list
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\stagesPage.cpp(50,21): warning C4551: function call missing argument list
+E:\Mariq\linked-list-sprint-project-storia\src\stagesPage.cpp(35,21): warning C4551: function call missing argument list
+E:\Mariq\linked-list-sprint-project-storia\src\stagesPage.cpp(40,21): warning C4551: function call missing argument list
+E:\Mariq\linked-list-sprint-project-storia\src\stagesPage.cpp(45,21): warning C4551: function call missing argument list
+E:\Mariq\linked-list-sprint-project-storia\src\stagesPage.cpp(50,21): warning C4551: function call missing argument list
   timeLine.cpp
   userInterface.cpp
   users.cpp
   utiles.cpp
   Generating Code...
-C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\src\users.cpp(105,1): warning C4715: 'User::loadFromFile': not all control paths return a value
-  Storia.vcxproj -> C:\Users\GRIGS\Documents\linked-list-sprint-project-storia\bin\Debug\Storia.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+E:\Mariq\linked-list-sprint-project-storia\src\users.cpp(103): warning C4715: 'User::loadFromFile': not all control paths return a value
+  Storia.vcxproj -> E:\Mariq\linked-list-sprint-project-storia\bin\Debug\Storia.exe

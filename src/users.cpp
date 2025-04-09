@@ -13,7 +13,7 @@ bool User::checkEmail(const std::string& email, const std::string& fileName)
 
 	for (const auto& item : data) {
 		if (item["email"] == email) {
-			std::cout << "             ERROR: Email already exists.\n             Enter Email: "  ;
+			std::cout << "             ERROR: Email already exists.\n             Enter Email: ";
 			return false;
 		}
 	}
@@ -113,7 +113,7 @@ void User::displayUser()
 
 void User::eraseUser() {
 	this->email = "";
-	this->userName ="";
+	this->userName = "";
 	this->password = "";
 	this->isAdmin = false;
 }
