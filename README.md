@@ -58,7 +58,9 @@
 ### After running our exe file, which opens our applications, users are greeted with the main menu, where they can log in their accounts, create one or just look at sorted historic events. After logging into their account, users are free to add more and more events.
 
 # 🔌 Application
-### Download our release version and run it.
+### Download our release version, open a command prompt and run 
+<pre>premake5 vs2022</pre>
+### Then navigate to the build folder, double click the solution file and open it in Visual Studio!
 
 # 💻 Languages-Frameworks-Tools
 ## - Code editors & collaborative services
@@ -82,8 +84,8 @@
 # 📁 Documents
 ### Code & Team Documentation
   - [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/idraykova22_codingburgas_bg/Eeb0h5iugmZPtfpjZ_UwHagBqlQLDj9ouRXAb-TZ84PwAQ?e=4CTswS)
-  - [Doxygen Documentation]()
-  - [QA Documentation]()
+  - [Doxygen Documentation](https://idraykova22.github.io/Storia-Doxygen-Documentation/)
+  - [QA Documentation](https://codingburgas-my.sharepoint.com/:x:/g/personal/idraykova22_codingburgas_bg/ESlt-zTuKZJGuT_nJdRcqBcBRkCMbnNKUm_-KNoizBB-ow)
 
 ### Presenting
   - [Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/idraykova22_codingburgas_bg/EY-QCA0y49FNi2AytGnpSPUBorgXGoHIiB3nXnRsoLTeBQ?e=RjzbRL)
