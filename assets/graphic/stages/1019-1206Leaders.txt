@@ -1,0 +1,27 @@
+                                        +===========================================+
+                                        |                                           |
+                                        |    _                   _                  |
+                                        |   | |    ___  __ _  __| | ___ _ __ ___    |
+                                        |   | |   / _ \/ _` |/ _` |/ _ \ '__/ __|   |
+                                        |   | |__|  __/ (_| | (_| |  __/ |  \__ \   |
+                                        |   |_____\___|\__,_|\__,_|\___|_|  |___/   |
+                                        |                                           |
+                                        +===========================================+
+
+
+Peter Delyan - A Bulgarian leader who led the 1040 rebellion against Byzantine rule. Claiming to be a descendant of the old Bulgarian Tsars, he gained support and managed to capture several important cities. However, internal conflicts among his allies weakened the uprising, leading to his eventual capture and death.
+
+Georgi Voiteh - A Bulgarian noble who led the 1072 uprising. He allied with Serbian and Norman forces to challenge Byzantine rule but was defeated. His attempt to restore an independent Bulgaria failed, and he was captured and likely executed by the Byzantines.
+
+Asen - One of the leaders of the 1185 rebellion against Byzantine rule. He played a crucial role in military campaigns that secured Bulgaria's independence. He was assassinated in 1196, leading to a brief rule by his brother Peter.
+
+Peter - Another leader of the 1185 rebellion alongside his brother Asen. Initially proclaimed ruler, he was later overshadowed by Asen’s military efforts. After Asen's assassination, he briefly ruled before being overthrown in 1197.
+
+Kaloyan - Tsar of Bulgaria from 1197 to 1207. He expanded Bulgaria's power, defeated Byzantine forces, and negotiated with the Pope for international recognition. In 1204, he initially allied with the crusaders but later turned against them, defeating the Latin Empire at the Battle of Adrianople in 1205. He died in 1207, possibly assassinated by his own men.
+
+                                        +==========================+
+                                        |                          |
+                                        |  Press N to go back      |
+					|  Press M for main menu   |
+                                        |                          |
+                                        +==========================+

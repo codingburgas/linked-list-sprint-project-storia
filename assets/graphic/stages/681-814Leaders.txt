@@ -1,0 +1,34 @@
+                                        +===========================================+
+                                        |                                           |
+                                        |    _                   _                  |
+                                        |   | |    ___  __ _  __| | ___ _ __ ___    |
+                                        |   | |   / _ \/ _` |/ _` |/ _ \ '__/ __|   |
+                                        |   | |__|  __/ (_| | (_| |  __/ |  \__ \   |
+                                        |   |_____\___|\__,_|\__,_|\___|_|  |___/   |
+                                        |                                           |
+                                        +===========================================+
+
+Khan Asparuh (681-): Founded the Bulgarian state after defeating the Byzantines at the Battle of Ongal. Secured a peace treaty, established Pliska as the capital, and strengthened ties with the Slavic tribes.
+
+Khan Tervel (700-721): Strengthened Bulgaria’s regional influence, helped Emperor Justinian II regain the Byzantine throne, gained the Zagore region, and played a crucial role in repelling the Arab siege of Constantinople (717-718).
+
+Khan Sevar (738-753): Last ruler of Asparuh’s direct lineage. His reign marked a period of political instability, with frequent leadership changes and external threats.
+
+Khan Kormisosh (753-?): Came from a different ruling family. Attempted to counter Byzantine aggression but suffered military defeats, leading to his removal.
+
+Khan Vinekh (?-761): Pursued diplomacy with Byzantium but faced dissatisfaction and was eventually overthrown.
+
+Khan Telets (761-765): Took an aggressive stance against Byzantium but faced internal opposition, leading to his downfall.
+
+Khan Telerig (768-777): Strengthened Bulgaria’s stability and outmaneuvered Byzantine spies.
+
+Khan Kardam (777-803): Restored stability and engaged in successful military campaigns against Byzantium, setting the stage for the expansion under Khan Krum.
+
+Khan Krum (803-814): Expanded Bulgaria significantly, defeating the Avars and Byzantines. Won the Battle of Pliska (811), killing Emperor Nikephoros I. Introduced strict laws, centralized power, and boosted economic growth.
+
+                                        +==========================+
+                                        |                          |
+                                        |  Press N to go back      |
+					|  Press M for main menu   |
+                                        |                          |
+                                        +==========================+
