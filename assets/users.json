@@ -1,0 +1,23 @@
+[
+    {
+        "email": "f88532ff9d6ad93065c7414c6ef1f5e9456804bc5478e02ae01bc5b5c133e228",
+        "id": 1,
+        "isAdmin": false,
+        "password": "2d6f5c56f578e14da2eb426357a73389b0330413ece11fffe0df80fb03d1a721",
+        "userName": "aaaaa!"
+    },
+    {
+        "email": "f4c4a060e24dc9150b8cf7d4ca8a4256f0b10d28d4a6082d72ee0744c6528b1f",
+        "id": 2,
+        "isAdmin": true,
+        "password": "ddfa08f04ffbedd937ce079026ead9826c0f4572feee5e45ff2a66d058c0c9d5",
+        "userName": "Admin"
+    },
+    {
+        "email": "95bcb444059066b6fa6629201fe1237518a9c146eac165d1d05fc95e0a9f68bb",
+        "id": 3,
+        "isAdmin": false,
+        "password": "497ec217dd9c77b414fd823c7ae5bec96b905c9d58fba832cff61974ddf07a3f",
+        "userName": "Iva"
+    }
+]

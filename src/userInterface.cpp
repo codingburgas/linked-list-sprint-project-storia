@@ -56,31 +56,31 @@ void Ui::mainMenu() {
 
     while (true) {
 
-        int choice;
+        char choice;
         std::cout << "Choice: ";
         std::cin >> choice;
 
         switch (choice) {
-        case 1:
+        case '1':
             registerUi();
             displayMenuMsg("      Hello, " + user->getUserName() + ". Welcome to Storia!\n");
             break;
-        case 2:
+        case '2':
             logInUi();
             displayMenuMsg("Welcome back, " + user->getUserName() + "\n");
             break;
-        case 4:
+        case '4':
             timeLineUi();
             break;
-        case 3:
+        case '3':
             Stages::stagesMenu(*this);
             Utiles::resetColor();
             break;
-        case 5:
+        case '5':
             displayMenuMsg("You've logged out from: " + user->getUserName() + "\n");
             user->eraseUser();
             break;
-        case 6:
+        case '6':
             std::cout << "See you next time " << user->getUserName();
             return;
         default:
